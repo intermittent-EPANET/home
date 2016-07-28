@@ -17,7 +17,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title> Convert your INP Files to Simulate India's Water Systems</title>
+    <title>Intermittent EPANET</title>
     <!--GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!--BOOTSTRAP MAIN STYLES -->
@@ -33,7 +33,7 @@
     <![endif]-->
 </head>
     <!--END HEAD SECTION -->
-<body link = "white">   
+<body>   
 
      <!-- NAV SECTION -->
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -73,7 +73,7 @@
                 <div class="col-md-12">
 
                     <div class="text-center">
-                        <h4 class="head-line" >Simulate Non-Demand Driven Water Networks</h4>
+                        <h4 class="head-line" >Intermittent EPANET</h4>
 
                     </div>
                 </div>
@@ -84,7 +84,7 @@
       <!--END HEADER SECTION -->
    
      <!-- ABOUT SECTION -->
-      <div id="about-section" class="section" style = "color: #B3B3B3">
+      <div id="about-section" class="section">
 
         <div class="container" >
           
@@ -784,24 +784,25 @@
                         var ccc = 0;
                         var finalTester = "";
                         for (element_j in ARRAY_OF_JUNCTIONS){
-                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace('/t','');
-                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace(' ','');
-                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace('/n','');
 
                             ARRAY_OF_JUNCTION_IDS.push(ARRAY_OF_JUNCTIONS[element_j].ID);
                         }
-
                         //  for every entry in the demands list, pop it, and =+ the demand of that junction
-
+                        var ji = 0;
                         for (dem in ARRAY_OF_DEMANDS){
                             
-                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/t','');
-                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace(' ','');
-                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/n','');
+                            //ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/t','');
+                            //ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace(' ','');
+                            //ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/n','');
+                            
+                            ji= ARRAY_OF_JUNCTION_IDS.indexOf(ARRAY_OF_DEMANDS[dem].ID);
+                            //ARRAY_OF_JUNCTIONS[ji].Demand += ARRAY_OF_DEMANDS[dem].Demand;
+
+                            
                             
                         }
-                        //document.getElementById("DEMANDS").innerHTML = finalTester;
-                        //document.getElementById("PIPES").innerHTML = ARRAY_OF_JUNCTIONS.length; // √
+                        //document.getElementById("DEMANDS").innerHTML = ARRAY_OF_JUNCTION_IDS;
+                        //document.getElementById("PIPES").innerHTML = ji; // √
 
                         ARRAY_OF_DEMANDS = [];
                         
@@ -893,7 +894,7 @@
         
                             newSizes = new SizeConversion(demandForFixing, householdDemand, dayPercent, pipeDia, lossCoef, tankHeight);
         
-                            ARRAY_OF_JUNCTIONS[fixlist[fix]].Demand = 0;
+                            //ARRAY_OF_JUNCTIONS[fixlist[fix]].Demand = 0;
         
         
                             if (bpList.indexOf(ARRAY_OF_JUNCTIONS[fixlist[fix]].ID) >= 0){
