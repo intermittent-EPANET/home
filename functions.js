@@ -91,7 +91,7 @@ function Junction(ID, Elev, Demand, Pattern, Colon) {
         }
         //this.ID = this.isolated;
 
-        return this.ID + String(this.Elev) + white + String(this.Demand) + white + String(this.Pattern) + white + ";" + "\n";
+        return this.ID + white + String(this.Elev) + white + String(this.Demand) + white + String(this.Pattern) + white + ";" + "\n";
     };
     this.flatten = function () {
         return new AddWhiteSpaceColon([this.ID, this.Elev, this.Demand, this.Pattern], this.Colon);
