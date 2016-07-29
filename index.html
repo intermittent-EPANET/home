@@ -73,7 +73,7 @@
                 <div class="col-md-12">
 
                     <div class="text-center">
-                        <h4 class="head-line" >Intermittent EPANET</h4>
+                        <h4 class="head-line"; font-family="Open Sans";>Intermittent EPANET</h4>
 
                     </div>
                 </div>
@@ -91,13 +91,13 @@
                
             <div class="row main-low-margin">
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" >
-                    <h2>Why use this program?</h2>
+                    <h2>Why Intermittent EPANET?</h2>
                     <p>  </p>
                     <h5>
                     
-                    This program is for engineers who use <a href = "https://www.epa.gov/water-research/epanet">EPANET</a> to simulate water networks outside of the United States. In the United States, EPANET assumes that every customer gets as much water as they want, and solves for the network pressures to ensure that. However, the same is not true in some other countries. In these countries (such as India and other developing nations), customer consumption is strongly related to pressure of water network. Therefore, we adapt your inputs into EPANET to model this. Simply save the INP file you would put into EPANET as a .txt file (using notepad for Windows or textEdit for Mac) and upload it below (an example of an acceptable file is below). Then press create file and follow the download link for your new file, which will be modeled more accurately by EPANET. If you would like to customize certain variables, type in new values below and press create variable. Please note that this technology is still in beta.
+                    This program is for engineers who use <a href = "https://www.epa.gov/water-research/epanet"; style = "color: #4FD3FE";>EPANET</a> to simulate water networks outside of the United States. In the United States, EPANET assumes that every customer gets as much water as they want, and solves for the network pressures to ensure that. However, the same is not true in some other countries. In these countries (such as India and other developing nations), customer consumption is strongly related to the pressure of water network. Therefore, this interface adapts your inputs into EPANET to model this. Simply save the INP file you would put into EPANET as a .txt file (using notepad for Windows or textEdit for Mac) and upload it below. Then press create file and follow the download link for your new file, which will be simulated better by EPANET. If you would like to customize certain variables, type in new values below and press create variable. Please note that this technology is still in beta.
                     </h5>
-                    <img src="http://i32.photobucket.com/albums/d11/papostolicas18/Screen%20Shot%202016-07-28%20at%202.17.15%20PM_zpsdzsrclk5.png" alt="Example of acceptable .inp file" style="width:700px;height:700px;">
+                    <img src="Screen Shot 2016-07-28 at 2.17.15 PM.png" alt="Example of acceptable .inp file" style="width:700px;height:700px;">
                     <h5>Example of acceptable .inp file</h5>
 <!-----------------------------------------this is testing section for functions-------------------------------------------------->
                     <!-- here is where i want to add EPANETFUNCTIONS and EPANET Classes -->
@@ -112,7 +112,7 @@
 
 <!-----------------------------------------ONE------------------------------------------------------------------------------------------------->
                     <h6>Enter the #m avg length between water main and HH's sump, meter, or equivalent. Values already in boxes are default.</h6>
-                    <textarea id="textbox1">10</textarea> <button id="enter1">Enter Variable</button> <a download="info.txt" id="downloadlink1"                                           style="display: none">Success (download to view variable entered)</a>
+                    <textarea id="textbox1">10</textarea> <button id="enter1">Enter Variable</button> <a download="info.txt" id="downloadlink1"                                           style="display: none"></a>
                     <p id = "pipeLengthHH"></p>
 
                     <script>
@@ -153,7 +153,7 @@
                 
 <!----------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the average roughness factor for existing pipes between</h6>
-                    <textarea id="textbox2">110</textarea> <button id="enter2">Enter Variable</button> <a download="info.txt" id="downloadlink2"                                           style="display: none">Success (download to view variable entered)</a>
+                    <textarea id="textbox2">110</textarea> <button id="enter2">Enter Variable</button> <a download="info.txt" id="downloadlink2"                                           style="display: none"></a>
                     <p id = "pipeRoughHH"></p>
 
                     <script>
@@ -194,7 +194,7 @@
 
 <!------------------------------------------------------------------------------------------------------------------------------------------>
                     <h6>Enter assumed diamter of individual HH conectison</h6>
-                    <textarea id="textbox3">15</textarea> <button id="enter3">Enter Variable</button> <a download="info.txt" id="downloadlink3"                                           style="display: none">Success (download to view variable entered)</a>
+                    <textarea id="textbox3">15</textarea> <button id="enter3">Enter Variable</button> <a download="info.txt" id="downloadlink3"                                           style="display: none"></a>
                     <p id = "pipeDia"></p>
 
                     <script>
@@ -233,7 +233,7 @@
                     </script>
 <!------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the loss coefficient</h6>
-                    <textarea id="textbox4">8</textarea> <button id="enter4">Enter Variable</button> <a download="info.txt" id="downloadlink4"                                           style="display: none">Success (download to view variable entered)</a>
+                    <textarea id="textbox4">8</textarea> <button id="enter4">Enter Variable</button> <a download="info.txt" id="downloadlink4"                                           style="display: none"></a>
                     <p id = "lossCoef"></p>
 
                     <script>
@@ -272,7 +272,7 @@
                     </script>
 <!------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the x offset</h6>
-                    <textarea id="textbox5">5</textarea> <button id="enter5">Enter Variable</button> <a download="info.txt" id="downloadlink5"                                           style="display: none">Success (download to view variable entered)</a>
+                    <textarea id="textbox5">5</textarea> <button id="enter5">Enter Variable</button> <a download="info.txt" id="downloadlink5"                                           style="display: none"></a>
                     <p id = "xoff"></p>
 
                     <script>
@@ -313,7 +313,7 @@
                     
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the tankHeight</h6>
-                    <textarea id="textbox6">1</textarea> <button id="enter6">Enter Variable</button> <a download="info.txt" id="downloadlink6"                                           style="display: none">Success (download to view variable entered)</a>
+                    <textarea id="textbox6">1</textarea> <button id="enter6">Enter Variable</button> <a download="info.txt" id="downloadlink6"                                           style="display: none"></a>
                     <p id = "tankHeight"></p>
 
                     <script>
@@ -352,7 +352,7 @@
                     </script>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the y offset</h6>
-                    <textarea id="textbox7">5</textarea> <button id="enter7">Enter Variable</button> <a download="info.txt" id="downloadlink7"                                           style="display: none">Success (download to view variable entered)</a>
+                    <textarea id="textbox7">5</textarea> <button id="enter7">Enter Variable</button> <a download="info.txt" id="downloadlink7"                                           style="display: none"></a>
                     <p id = "yoff"></p>
 
                     <script>
@@ -391,7 +391,7 @@
                     </script>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the day percent</h6>
-                    <textarea id="textbox8">1</textarea> <button id="enter8">Enter Variable</button> <a download="info.txt" id="downloadlink8"                                           style="display: none">Success (download to view variable entered)</a>
+                    <textarea id="textbox8">1</textarea> <button id="enter8">Enter Variable</button> <a download="info.txt" id="downloadlink8"                                           style="display: none"></a>
                     <p id = "dayPercent"></p>
 
                     <script>
@@ -431,7 +431,7 @@
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
 
 
-                    <h5> Please upload a .txt file below. If you run a Windows Operating System, INP files can be converted to .txt files by simply being copied and pasted into notepad. If you run are running a Mac Operating System open TextEdit and simply press "Save As..." </h5>
+                    <h5> Please upload a .txt file below. If you are running Windows, .inp files can be converted to .txt files by simply being copied and pasted into Notepad. If you run are running Mac OSX open TextEdit and rename the file extension to be .txt. If you are uploading multiple files, refresh before doing so.</h5>
                     <input type='file' accept='text/plain' onchange='openFile(event)'><br>
                     <p id="meep"></p>
                     <img id='output'>
@@ -527,7 +527,7 @@
                             var MIXING = MASTER_TEXT.substring(MIXING_START, TIMES_START);
                             var TIMES = MASTER_TEXT.substring(TIMES_START, REPORT_START);
                             var REPORT = MASTER_TEXT.substring(REPORT_START,OPTIONS_START);
-                            var OPTIONS = MASTER_TEXT.substring(OPTIONS_START, CONTROLS_START);
+                            var OPTIONS = MASTER_TEXT.substring(OPTIONS_START, COORDINATES_START);
                             var VERTICES = MASTER_TEXT.substring(VERTICES_START, LABELS_START);
                             var EMITTERS = MASTER_TEXT.substring(EMITTERS_START, QUALITY_START);
                             var QUALITY = MASTER_TEXT.substring(QUALITY_START, SOURCES_START)
@@ -815,7 +815,8 @@
                             if (ji >= 0){
                             ARRAY_OF_JUNCTIONS[ji].Demand += ARRAY_OF_DEMANDS[dem].Demand;
                             }
-                            console.log(ji);
+                            else{ console.log("ERROR");}
+                            //console.log(ji);
                             
                             
                         }
@@ -910,6 +911,7 @@
                         for (fix in fixlist) {
         
                             demandForFixing = ARRAY_OF_JUNCTIONS[fixlist[fix]].Demand;
+                            
         
                             newSizes = new SizeConversion(demandForFixing, householdDemand, dayPercent, pipeDia, lossCoef, tankHeight);
         
@@ -977,7 +979,7 @@
                                 
                         var ARRAY_OF_JUNCTIONS_PRINTED = "";
                         for (peep in ARRAY_OF_JUNCTIONS){
-                            
+                            ARRAY_OF_JUNCTIONS[peep].Demand = 0;
                             ARRAY_OF_JUNCTIONS_PRINTED += ARRAY_OF_JUNCTIONS[peep];
                             
                         }
@@ -1022,19 +1024,13 @@
                         };
                     </script>
                     <script src = "assets/js/EPANET_Functions_and_Classes.js"></script>
-                    <button id="create">Create file</button> <a download="edited.inp"                       id="downloadlink" style="display: none">Download</a>
-
+                    <button id="create">Create file</button> <a download="edited.inp" id="downloadlink" style="display: none">Download</a>
+                    <p> <br> </p>
                     <script>
                         
-                 /*   #########################################################################################
-                    
-                    NOW WHAT WE HAVE TO DO IS TO EDIT MASTER_TEXT --> ONCE MASTER_TEXT IS EDITED, WE ARE GOOD TO GO!
-                    
-                
-                    ######################################################################################### */
                 
 // ----------------------------------------------------------------------------------------------------------------------------------------- <-->
-                 /* following code was inspired by 'uselesscode' and his/her response on http://stackoverflow.com/questions/8178825/create-text-file-in-                             javascript */
+                 /* following code was inspired by 'uselesscode' and his/her response on http://stackoverflow.com/questions/8178825/create-text-file-in-javascript */
                     
                         
                      (function () {
@@ -1066,7 +1062,7 @@
                     }, false);
                     })(); 
                     </script>
-                    <p id = "JUNCTIONS"></p>
+                    <!--<p id = "JUNCTIONS"></p>
                     <p id = "RESERVOIRS"></p>
                     <p id = "TANKS"></p>
                     <p id = "PIPES"></p>
@@ -1090,7 +1086,7 @@
                     <p id = "VERTICES"></p>
                     <p id = "LABELS"></p>
                     <p id = "BACKDROP"></p>
-                    <p id = "END"></p> 
+                    <p id = "END"></p> -->
 
                 </div>
             </div>
@@ -1112,10 +1108,10 @@
                         <h3>About the Authors</h3>
                         <hr />
                         <p>
-                        <a href = "http://www.daviddtaylor.com/wp-content/uploads/2014/09/DTaylor_Resume1.pdf">David Taylor </a> is a PHD Candidate at the Massachusetts Institute of Technology "with experience and enthusiasm working in complex systems that benefit the poor. He is passionate about understanding how things connect and using engineering analysis to find leverage points that have meaningful impact. His research at the MIT Tata Center has focused on India’s urban water supply systems"(Tata Center Bio).                        
+                        <a href = "http://www.daviddtaylor.com/wp-content/uploads/2014/09/DTaylor_Resume1.pdf">David Taylor </a> is a PHD Candidate at the Massachusetts Institute of Technology "with experience and enthusiasm working in complex systems that benefit the poor. He is passionate about understanding how things connect and using engineering analysis to find leverage points that have meaningful impact. His research at the MIT Tata Center has focused on India’s urban water supply systems" (Tata Center Bio). For general inquries regarding the program's methodology, please contact David.                         
                         
                         <br />
-                        <p>Paul Apostolicas is a high school intern who works with David Taylor. Interested in computer science, Paul helped wrote the code for this web interface, and in the process learned about python, web frameworks, and advanced javascript functions.</p>
+                        <p>Paul Apostolicas is a high school intern who works with David Taylor. Interested in computer science, Paul helped wrote the code for this web interface, and in the process learned about html, css, python, web frameworks, advanced javascript functions, and web hosting. Paul's hobbies include chess, cross-country running, tutoring, and international affairs. For questions regarding website functionality or glitches, please contact Paul. </p>
                         
                       
                     </div>
@@ -1133,6 +1129,8 @@
                 </div>
             </div>
              <!-- ./ Row Content-->
+            <h6> <i>Disclaimer: Intermittent EPANET should be used strictly for simulation purposes and not for technical calculations. Intermittent EPANET, the authors, and MIT do not assume responsibility for anything stemming from use of this program. The code can be reused with permission of the authors.</i></h6>
+
         </div>
    <div class="space-top"></div>
 
