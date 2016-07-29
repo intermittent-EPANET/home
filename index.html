@@ -438,7 +438,6 @@
 
                     <h5> Please upload a .txt file below. If you are running Windows, .inp files can be converted to .txt files by simply being copied and pasted into Notepad. If you run are running Mac OSX open TextEdit and rename the file extension to be .txt. If you are uploading multiple files, refresh before doing so.</h5>
                     <input type='file' accept='text/plain' onchange='openFile(event)'><br>
-                    <p id="meep"></p>
                     <img id='output'>
                     
                     
@@ -1028,7 +1027,6 @@
                         reader.readAsText(input.files[0]);
                         };
                     </script>
-                    <script src = "assets/js/EPANET_Functions_and_Classes.js"></script>
                     <button id="create">Create file</button> <a download="edited.inp" id="downloadlink" style="display: none">Download</a>
                     <p> <br> </p>
                     <script>
