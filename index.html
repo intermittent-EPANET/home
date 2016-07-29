@@ -115,8 +115,11 @@
                         // document.getElementById("testing").innerHTML =  b; //  b.toString();
                         </script>
 
-<!-----------------------------------------ONE------------------------------------------------------------------------------------------------->
-                    <h6>Enter the #m avg length between water main and HH's sump, meter, or equivalent. Values already in boxes are default.</h6>
+<!-----------------------------------------ONE------------------------------------------------------------------------------------------------->        <hr />
+
+                    <h6> Values already in boxes are default. If you do not wish to enter your own variables, skip this section.                         </h6>
+                    <hr />
+                    <h6>Enter the average #m between water main and HH's sump, meter, or equivalent.</h6>
                     <textarea id="textbox1">10</textarea> <button id="enter1">Enter Variable</button> <a download="info.txt" id="downloadlink1"                                           style="display: none"></a>
                     <p id = "pipeLengthHH"></p>
 
@@ -155,10 +158,9 @@
                         })();
 
                     </script>
-                    <hr />
 
 <!----------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the average roughness factor for existing pipes between</h6>
+                    <h6>Enter the average roughness factor for existing pipes.</h6>
                     <textarea id="textbox2">110</textarea> <button id="enter2">Enter Variable</button> <a download="info.txt" id="downloadlink2"                                           style="display: none"></a>
                     <p id = "pipeRoughHH"></p>
 
@@ -197,9 +199,8 @@
                         })();
 
                     </script>
-                    <hr />
 <!------------------------------------------------------------------------------------------------------------------------------------------>
-                    <h6>Enter assumed diamter of individual HH conectison</h6>
+                    <h6>Enter diamter of individual HH conectison</h6>
                     <textarea id="textbox3">15</textarea> <button id="enter3">Enter Variable</button> <a download="info.txt" id="downloadlink3"                                           style="display: none"></a>
                     <p id = "pipeDia"></p>
 
@@ -237,7 +238,6 @@
                         })();
 
                     </script>
-                    <hr />
 <!------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the loss coefficient</h6>
                     <textarea id="textbox4">8</textarea> <button id="enter4">Enter Variable</button> <a download="info.txt" id="downloadlink4"                                           style="display: none"></a>
@@ -277,7 +277,6 @@
                         })();
 
                     </script>
-                    <hr />
 
 <!------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the x offset</h6>
@@ -318,50 +317,8 @@
                         })();
 
                     </script>
-                    <hr />
 
                     
-<!-------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the tankHeight</h6>
-                    <textarea id="textbox6">1</textarea> <button id="enter6">Enter Variable</button> <a download="info.txt" id="downloadlink6"                                           style="display: none"></a>
-                    <p id = "tankHeight"></p>
-
-                    <script>
-                        var tankHeight = 1;
-                        // #m avg length between water main and HH's sump, meter, or equivalent 
-                        (function () {
-                            var textFile = null,
-                                makeTextFile = function (text) {
-                                    var data = new Blob([text], {type: 'text/plain'});
-
-                                    // If we are replacing a previously generated file we need to
-                                    // manually revoke the object URL to avoid memory leaks.
-                                    if (textFile !== null) {
-                                        window.URL.revokeObjectURL(textFile);
-                                    }
-
-                                    textFile = window.URL.createObjectURL(data);
-
-                                    return textFile;
-                                };
-
-
-                        enter6 = document.getElementById('enter6'),
-                        textbox6 = document.getElementById('textbox6');
-                            
-                        tankHeight = textbox6.value;
-
-                        enter6.addEventListener('click', function () {
-                        var link = document.getElementById('downloadlink6');
-                        link.href = makeTextFile(textbox6.value);
-                        link.style.display = 'block';
-                        document.getElementById("tankHeight").innerHTML = "You entered: " + textbox6.value + " as the tankHeight.";
-                        }, false);
-                        })();
-
-                    </script>
-                    <hr />
-
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the y offset</h6>
                     <textarea id="textbox7">5</textarea> <button id="enter7">Enter Variable</button> <a download="info.txt" id="downloadlink7"                                           style="display: none"></a>
@@ -401,7 +358,46 @@
                         })();
                     
                     </script>
-                    <hr />
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------->
+                    <h6>Enter the tankHeight</h6>
+                    <textarea id="textbox6">1</textarea> <button id="enter6">Enter Variable</button> <a download="info.txt" id="downloadlink6"                                           style="display: none"></a>
+                    <p id = "tankHeight"></p>
+
+                    <script>
+                        var tankHeight = 1;
+                        // #m avg length between water main and HH's sump, meter, or equivalent 
+                        (function () {
+                            var textFile = null,
+                                makeTextFile = function (text) {
+                                    var data = new Blob([text], {type: 'text/plain'});
+
+                                    // If we are replacing a previously generated file we need to
+                                    // manually revoke the object URL to avoid memory leaks.
+                                    if (textFile !== null) {
+                                        window.URL.revokeObjectURL(textFile);
+                                    }
+
+                                    textFile = window.URL.createObjectURL(data);
+
+                                    return textFile;
+                                };
+
+
+                        enter6 = document.getElementById('enter6'),
+                        textbox6 = document.getElementById('textbox6');
+                            
+                        tankHeight = textbox6.value;
+
+                        enter6.addEventListener('click', function () {
+                        var link = document.getElementById('downloadlink6');
+                        link.href = makeTextFile(textbox6.value);
+                        link.style.display = 'block';
+                        document.getElementById("tankHeight").innerHTML = "You entered: " + textbox6.value + " as the tankHeight.";
+                        }, false);
+                        })();
+
+                    </script>
 
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the day percent</h6>
