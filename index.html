@@ -19,7 +19,7 @@
         <![endif]-->
     <title>Intermittent EPANET</title>
     <!--GOOGLE FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
     <!--BOOTSTRAP MAIN STYLES -->
     <link href="bootstrap.css" rel="stylesheet" />
     <!--FONTAWESOME MAIN STYLE -->
@@ -73,8 +73,13 @@
                 <div class="col-md-12">
 
                     <div class="text-center">
-                        <h4 class="head-line"; font-family="Open Sans";>Intermittent EPANET</h4>
-
+                        <h2 style="font-family:verdana; font-size: 50px;">Intermittent EPANET</h2>
+                        <h2> </h2>
+                        <h2> </h2>
+                        <h2> </h2>
+                        <h2> </h2>
+                        <p> <br> </p>
+                        
                     </div>
                 </div>
             </div>
@@ -91,14 +96,29 @@
                
             <div class="row main-low-margin">
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" >
-                    <h2>Why Intermittent EPANET?</h2>
+                    
+                    <h3>Instructions</h3>
                     <p>  </p>
                     <h5>
-                    
-                    This program is for engineers who use <a href = "https://www.epa.gov/water-research/epanet"; style = "color: #4FD3FE";>EPANET</a> to simulate water networks outside of the United States. In the United States, EPANET assumes that every customer gets as much water as they want, and solves for the network pressures to ensure that. However, the same is not true in some other countries. In these countries (such as India and other developing nations), customer consumption is strongly related to the pressure of water network. Therefore, this interface adapts your inputs into EPANET to model this. Simply save the INP file you would put into EPANET as a .txt file (using notepad for Windows or textEdit for Mac) and upload it below. Then press create file and follow the download link for your new file, which will be simulated better by EPANET. If you would like to customize certain variables, type in new values below and press create variable. Please note that this technology is still in beta.
+                        To use Intermittent EPANET, follow these steps. <hr  />
+                    1. Convert a suitable .inp file to a .txt file (example shown below). This can be done by simply renaming the extension to be .txt. Windows users can use Notepad for this, while Mac users can use textEdit. <br>
+                    <img src="Screen Shot 2016-07-31 at 2.53.54 PM.png" alt="Example of acceptable .inp file" style="width:700px;height:700px;">
+                    <p> Example of suitable .inp file</p>
+
+                    2. OPTIONAL: If you would like to customize your certain variables, type them in the textboxes under the <a href="#customize"; style = "color: #4FD3FE";>Customize</a> section. Simply type in the new value (no spaces or letters), and press "Enter Variable." <br>
+                    3. Upload your suitable .txt file under the <a href="#upload"; style="color: #4FD3FE";>Upload</a> section.<br>
+                    4. Then press the create button under the <a href="#created"; style = "color: #4FD3FE";>Create</a> section. <br>
+                        
+                    To learn about Intemittent EPANET, its purpose and methodology, refer to the about section below. 
+                        
                     </h5>
-                    <img src="Screen Shot 2016-07-28 at 2.17.15 PM.png" alt="Example of acceptable .inp file" style="width:700px;height:700px;">
-                    <h5>Example of acceptable .inp file</h5>
+                    <hr />
+                    <a name="#about"></a>
+                    <h3> About Intermittent EPANET</h3>
+                    <p>
+                    
+                    Intermittent EPANET is for engineers who use <a href = "https://www.epa.gov/water-research/epanet"; style = "color: #4FD3FE";>EPANET</a> to simulate water networks outside of the United States. In the United States, EPANET assumes that every customer gets as much water as they want, and solves for the network pressures to ensure that. However, the same is not true in some other countries. In these countries (such as India and other developing nations), customer consumption is strongly related to the pressure of water network. Therefore, this interface adapts your inputs into EPANET to model this. Please note that this technology is still in beta.
+                    </p>
 <!-----------------------------------------this is testing section for functions-------------------------------------------------->
                     <!-- here is where i want to add EPANETFUNCTIONS and EPANET Classes -->
                         <script src = "functions.js"></script>
@@ -110,8 +130,11 @@
                         // document.getElementById("testing").innerHTML =  b; //  b.toString();
                         </script>
 
-<!-----------------------------------------ONE------------------------------------------------------------------------------------------------->
-                    <h6>Enter the #m avg length between water main and HH's sump, meter, or equivalent. Values already in boxes are default.</h6>
+<!-----------------------------------------ONE------------------------------------------------------------------------------------------------->        <hr />
+                    <a name="customize"></a>
+                    <h3> Customize</h3>
+                    <h6> Values already in boxes are default. If you do not wish to enter your own variables, skip this section.                         </h6>
+                    <h6>Enter the average #m between water main and HH's sump, meter, or equivalent.</h6>
                     <textarea id="textbox1">10</textarea> <button id="enter1">Enter Variable</button> <a download="info.txt" id="downloadlink1"                                           style="display: none"></a>
                     <p id = "pipeLengthHH"></p>
 
@@ -150,9 +173,9 @@
                         })();
 
                     </script>
-                
+
 <!----------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the average roughness factor for existing pipes between</h6>
+                    <h6>Enter the average roughness factor for existing pipes.</h6>
                     <textarea id="textbox2">110</textarea> <button id="enter2">Enter Variable</button> <a download="info.txt" id="downloadlink2"                                           style="display: none"></a>
                     <p id = "pipeRoughHH"></p>
 
@@ -191,9 +214,8 @@
                         })();
 
                     </script>
-
 <!------------------------------------------------------------------------------------------------------------------------------------------>
-                    <h6>Enter assumed diamter of individual HH conectison</h6>
+                    <h6>Enter diamter of individual HH conectison</h6>
                     <textarea id="textbox3">15</textarea> <button id="enter3">Enter Variable</button> <a download="info.txt" id="downloadlink3"                                           style="display: none"></a>
                     <p id = "pipeDia"></p>
 
@@ -270,6 +292,7 @@
                         })();
 
                     </script>
+
 <!------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the x offset</h6>
                     <textarea id="textbox5">5</textarea> <button id="enter5">Enter Variable</button> <a download="info.txt" id="downloadlink5"                                           style="display: none"></a>
@@ -312,6 +335,46 @@
 
                     
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
+                    <h6>Enter the y offset</h6>
+                    <textarea id="textbox7">5</textarea> <button id="enter7">Enter Variable</button> <a download="info.txt" id="downloadlink7"                                           style="display: none"></a>
+                    <p id = "yoff"></p>
+
+                    <script>
+                        var yoff = 5;
+                        // #m avg length between water main and HH's sump, meter, or equivalent 
+                        (function () {
+                            var textFile = null,
+                                makeTextFile = function (text) {
+                                    var data = new Blob([text], {type: 'text/plain'});
+
+                                    // If we are replacing a previously generated file we need to
+                                    // manually revoke the object URL to avoid memory leaks.
+                                    if (textFile !== null) {
+                                        window.URL.revokeObjectURL(textFile);
+                                    }
+
+                                    textFile = window.URL.createObjectURL(data);
+
+                                    return textFile;
+                                };
+
+
+                        enter = document.getElementById('enter7'),
+                        textbox7 = document.getElementById('textbox7');
+                            
+                        yoff = textbox7.value;
+
+                        enter7.addEventListener('click', function () {
+                        var link = document.getElementById('downloadlink7');
+                        link.href = makeTextFile(textbox7.value);
+                        link.style.display = 'block';
+                        document.getElementById("yoff").innerHTML = "You entered: " + textbox7.value + " as the y offset.";
+                        }, false);
+                        })();
+                    
+                    </script>
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the tankHeight</h6>
                     <textarea id="textbox6">1</textarea> <button id="enter6">Enter Variable</button> <a download="info.txt" id="downloadlink6"                                           style="display: none"></a>
                     <p id = "tankHeight"></p>
@@ -350,45 +413,7 @@
                         })();
 
                     </script>
-<!-------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the y offset</h6>
-                    <textarea id="textbox7">5</textarea> <button id="enter7">Enter Variable</button> <a download="info.txt" id="downloadlink7"                                           style="display: none"></a>
-                    <p id = "yoff"></p>
 
-                    <script>
-                        var yoff = 5;
-                        // #m avg length between water main and HH's sump, meter, or equivalent 
-                        (function () {
-                            var textFile = null,
-                                makeTextFile = function (text) {
-                                    var data = new Blob([text], {type: 'text/plain'});
-
-                                    // If we are replacing a previously generated file we need to
-                                    // manually revoke the object URL to avoid memory leaks.
-                                    if (textFile !== null) {
-                                        window.URL.revokeObjectURL(textFile);
-                                    }
-
-                                    textFile = window.URL.createObjectURL(data);
-
-                                    return textFile;
-                                };
-
-
-                        enter = document.getElementById('enter7'),
-                        textbox7 = document.getElementById('textbox7');
-                            
-                        yoff = textbox7.value;
-
-                        enter7.addEventListener('click', function () {
-                        var link = document.getElementById('downloadlink7');
-                        link.href = makeTextFile(textbox7.value);
-                        link.style.display = 'block';
-                        document.getElementById("yoff").innerHTML = "You entered: " + textbox7.value + " as the y offset.";
-                        }, false);
-                        })();
-
-                    </script>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
                     <h6>Enter the day percent</h6>
                     <textarea id="textbox8">1</textarea> <button id="enter8">Enter Variable</button> <a download="info.txt" id="downloadlink8"                                           style="display: none"></a>
@@ -429,14 +454,131 @@
 
                     </script>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
+                    <h6>Enter the HH Daily</h6>
+                    <textarea id="textbox9">1100</textarea> <button id="enter9">Enter Variable</button> <a download="info.txt" id="downloadlink9" style="display: none"></a>
+                    <p id = "HHDaily"></p>
+
+                    <script>
+                        var HHDaily = 1100;
+
+                        (function () {
+                            var textFile = null,
+                                makeTextFile = function (text) {
+                                    var data = new Blob([text], {type: 'text/plain'});
+
+                                    // If we are replacing a previously generated file we need to
+                                    // manually revoke the object URL to avoid memory leaks.
+                                    if (textFile !== null) {
+                                        window.URL.revokeObjectURL(textFile);
+                                    }
+
+                                    textFile = window.URL.createObjectURL(data);
+
+                                    return textFile;
+                                };
 
 
-                    <h5> Please upload a .txt file below. If you are running Windows, .inp files can be converted to .txt files by simply being copied and pasted into Notepad. If you run are running Mac OSX open TextEdit and rename the file extension to be .txt. If you are uploading multiple files, refresh before doing so.</h5>
+                        enter9 = document.getElementById('enter9'),
+                        textbox9 = document.getElementById('textbox9');
+                            
+                        HHDaily = textbox9.value;
+
+                        enter9.addEventListener('click', function () {
+                        var link = document.getElementById('downloadlink9');
+                        link.href = makeTextFile(textbox9.value);
+                        link.style.display = 'block';
+                        document.getElementById("HHDaily").innerHTML = "You entered: " + textbox9.value + " as the HHDaily.";
+                        }, false);
+                        })();
+
+                    </script>
+<!-- ---------------------->
+                    <h6>Enter the bpDepth</h6>
+                    <textarea id="textbox11">0</textarea> <button id="enter11">Enter Variable</button> <a download="info.txt" id="downloadlink11" style="display: none"></a>
+                    <p id = "bpDepth"></p>
+
+                    <script>
+                        var bpdepth = 0;
+
+                        (function () {
+                            var textFile = null,
+                                makeTextFile = function (text) {
+                                    var data = new Blob([text], {type: 'text/plain'});
+
+                                    // If we are replacing a previously generated file we need to
+                                    // manually revoke the object URL to avoid memory leaks.
+                                    if (textFile !== null) {
+                                        window.URL.revokeObjectURL(textFile);
+                                    }
+
+                                    textFile = window.URL.createObjectURL(data);
+
+                                    return textFile;
+                                };
+
+
+                        enter11 = document.getElementById('enter11'),
+                        textbox11 = document.getElementById('textbox11');
+                            
+                        bpdepth = textbox11.value;
+
+                        enter11.addEventListener('click', function () {
+                        var link = document.getElementById('downloadlink11');
+                        link.href = makeTextFile(textbox11.value);
+                        link.style.display = 'block';
+                        document.getElementById("bpDepth").innerHTML = "You entered: " + textbox11.value + " as the bpDepth.";
+                        }, false);
+                        })();
+
+                    </script>
+                    <h6>Enter the sDepth</h6>
+                    <textarea id="textbox10">0</textarea> <button id="enter10">Enter Variable</button> <a download="info.txt" id="downloadlink10" style="display: none"></a>
+                    <p id = "sdepth"></p>
+
+                    <script>
+                        var sdepth = 0;
+
+                        (function () {
+                            var textFile = null,
+                                makeTextFile = function (text) {
+                                    var data = new Blob([text], {type: 'text/plain'});
+
+                                    // If we are replacing a previously generated file we need to
+                                    // manually revoke the object URL to avoid memory leaks.
+                                    if (textFile !== null) {
+                                        window.URL.revokeObjectURL(textFile);
+                                    }
+
+                                    textFile = window.URL.createObjectURL(data);
+
+                                    return textFile;
+                                };
+
+
+                        enter10 = document.getElementById('enter10'),
+                        textbox10 = document.getElementById('textbox10');
+                            
+                        sdepth = textbox10.value;
+
+                        enter10.addEventListener('click', function () {
+                        var link = document.getElementById('downloadlink10');
+                        link.href = makeTextFile(textbox10.value);
+                        link.style.display = 'block';
+                        document.getElementById("sdepth").innerHTML = "You entered: " + textbox10.value + " as the sDepth.";
+                        }, false);
+                        })();
+
+                    </script>
+                    <hr />
+                    <a name="upload"></a>
+
+                    <h4> Upload </h4>
+
+                    <h5> Please upload a suitable .txt file below. If you are converting multiple files, refresh the page before doing so.</h5>
                     <input type='file' accept='text/plain' onchange='openFile(event)'><br>
-                    <p id="meep"></p>
                     <img id='output'>
                     
-                    
+
                     <script>
                     /*
                     ##########################################  #############################################
@@ -876,13 +1018,19 @@
                         dayPercent = parseFloat(textbox8.value);
                         
                         lossCoef = parseFloat(textbox4.value);
+                                
+                        HHDaily = parseFloat(textbox9.value);
+                                
+                        sdepth = parseFloat(textbox10.value);
+                                
+                        bpDepth = parseFloat(textbox11.value);
                 
                         // end of constant inputation analysis
 
                         // ######################################################  
-                        var HHDaily = 1100;
-                        var sdepth = 0;
-                        var bpdepth = 0;
+                        //var HHDaily = 1100;
+                        //var sdepth = 0;
+                        //var bpdepth = 0;
                         var householdDemand = parseFloat(HHDaily);
                         var bpList = LList;
                         var sList = KList;
@@ -1023,9 +1171,11 @@
                         reader.readAsText(input.files[0]);
                         };
                     </script>
-                    <script src = "assets/js/EPANET_Functions_and_Classes.js"></script>
+                     <hr />
+                    <h4><a name="created"></a>Create File</h4>
                     <button id="create">Create file</button> <a download="edited.inp" id="downloadlink" style="display: none">Download</a>
-                    <p> <br> </p>
+
+                     <hr />
                     <script>
                         
                 
@@ -1127,9 +1277,16 @@
                     </div> 
                     
                 </div>
+                
             </div>
+            <hr />
+
              <!-- ./ Row Content-->
+             <a href = "https://github.com/intermittent-EPANET/home.git">Check us out on Github! </a>
+            <hr />
+
             <h6> <i>Disclaimer: Intermittent EPANET should be used strictly for simulation purposes and not for technical calculations. Intermittent EPANET, the authors, and MIT do not assume responsibility for anything stemming from use of this program. The code can be reused with permission of the authors.</i></h6>
+            
 
         </div>
    <div class="space-top"></div>
