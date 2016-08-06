@@ -82,16 +82,13 @@ function Junction(ID, Elev, Demand, Pattern, Colon) {
     
     this.toString = function () {
         var white = "        \t";
-        for (k = 0; k < this.ID.length - 1; k += 1) {
-            // ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz
-            if ("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz".indexOf(this.ID.substring(k, k + 1)) < 0) {
-                this.isolated += this.ID.substring(k, k + 1);
-            }
-            
+        //this.ID = this.ID.substring(2, this.ID.length -10);
+        if (Colon){
+        return this.ID + white + String(this.Elev) + white + String(this.Demand) + white + String(this.Pattern) + white + ";" + "\n";
         }
-        //this.ID = this.isolated;
-
-        return this.ID + String(this.Elev) + white + String(this.Demand) + white + String(this.Pattern) + white + ";" + "\n";
+        else {
+            return this.ID + white + String(this.Elev) + white + String(this.Demand) + white + String(this.Pattern) + white + " " + "\n";
+        }
     };
     this.flatten = function () {
         return new AddWhiteSpaceColon([this.ID, this.Elev, this.Demand, this.Pattern], this.Colon);
@@ -111,7 +108,12 @@ function Tank(ID, Elev, InitLvl, MinLvl, MaxLvl, Dia, MinVol, Colon) {
     
     this.toString = function () {
         var white = "        \t";
+        if (Colon){
         return white + this.ID + white + String(this.Elev) + white + String(this.InitLvl) + white + String(this.MinLvl) + white + String(this.MaxLvl) + white + String(this.Dia) + white + String(this.MinVol) + white + ";" + "\n";
+        }
+        else{
+        return white + this.ID + white + String(this.Elev) + white + String(this.InitLvl) + white + String(this.MinLvl) + white + String(this.MaxLvl) + white + String(this.Dia) + white + String(this.MinVol) + white + " " + "\n";
+        }
     };
     /* Tank.flatten = function () {
         return new AddWhiteSpaceColon([this.ID,this.Elev, self.InitLvl, self.MinLvl, self.MaxLvl,self.Dia,self.MinVol],this.Colon);
@@ -145,8 +147,14 @@ function Pipe(ID, Node1, Node2, Length, Dia, Rough, Loss, Status, Colon) {
 
     this.toString = function () {
         var white = "        \t";
+        if(Colon){
         this.ID = this.ID.substring(this.ID.indexOf("\t") + "\t".length, this.ID.length);
         return this.ID + white + this.Node1 + white + this.Node2 + white + String(this.Length) + white + String(this.Dia) + white + String(this.Rough) + white + String(this.Loss) + white + this.Status + "  ;";
+        }
+        else {
+        this.ID = this.ID.substring(this.ID.indexOf("\t") + "\t".length, this.ID.length);
+        return this.ID + white + this.Node1 + white + this.Node2 + white + String(this.Length) + white + String(this.Dia) + white + String(this.Rough) + white + String(this.Loss) + white + this.Status + "   ";
+        }
     };
     this.flatten = function () {
         return 5; // AddWhiteSpaceColon([this.ID,this.Node1,this.Node2, this.Length, this.Dia, this.Rough, this.Loss, this.Status],this.Colon)    
@@ -182,7 +190,12 @@ function DemandSpec(ID, Demand, Pattern, Colon) {
         
     this.toString = function () {
         var white = "        \t";
+        if (Colon){
         return String(this.ID) + white + String(this.Demand) + white + this.Pattern +  ";" + "\n";
+        }
+        else{
+        return String(this.ID) + white + String(this.Demand) + white + this.Pattern +  " " + "\n";
+        }
     };
     this.flatten = function () {
 
