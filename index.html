@@ -44,11 +44,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">A Website by David Taylor and Paul Apostolicas</a>
+                <a class="navbar-brand" href="#">Intermittent EPANET</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#header-section">HOME</a></li>
+                    <li><a href="#header-section">By David Taylor and Paul Apostolicas</a></li>
                 </ul>
             </div>
            
@@ -74,11 +74,6 @@
 
                     <div class="text-center">
                         <h2 style="font-family:verdana; font-size: 50px;">Intermittent EPANET</h2>
-                        <h2> </h2>
-                        <h2> </h2>
-                        <h2> </h2>
-                        <h2> </h2>
-                        <p> <br> </p>
                         
                     </div>
                 </div>
@@ -98,18 +93,22 @@
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" >
                     
                     <h3>Instructions</h3>
-                    <p>  </p>
                     <h5>
                         To use Intermittent EPANET, follow these steps. <hr  />
-                    1. Convert a suitable .inp file to a .txt file (example shown below). This can be done by simply renaming the extension to be .txt. Windows users can use Notepad for this, while Mac users can use textEdit. <br>
+                    1. Convert a suitable .inp file from your hydraulic modeling software to a .txt file (example shown below). This can be done by simply renaming the extension to be .txt. Windows users can use Notepad for this, while Mac users can use textEdit. <br>
                     <img src="Screen Shot 2016-07-31 at 2.53.54 PM.png" alt="Example of acceptable .inp file" style="width:700px;height:700px;">
                     <p> Example of suitable .inp file</p>
 
-                    2. OPTIONAL: If you would like to customize your certain variables, type them in the textboxes under the <a href="#customize"; style = "color: #4FD3FE";>Customize</a> section. Simply type in the new value (no spaces or letters), and press "Enter Variable." <br>
-                    3. Upload your suitable .txt file under the <a href="#upload"; style="color: #4FD3FE";>Upload</a> section.<br>
-                    4. Then press the create button under the <a href="#created"; style = "color: #4FD3FE";>Create</a> section. <br>
-                        
-                    To learn about Intemittent EPANET, its purpose and methodology, refer to the about section below. 
+                    2. OPTIONAL: If you would like to customize your certain variables, type them in the textboxes under the <a href="#customize"; style = "color: #add8e6";>Customize</a> section. Simply type in the new value (no spaces or letters), and press "Enter Variable." <br>
+                    3. Upload your suitable .txt file under the <a href="#upload"; style="color: #add8e6";>Upload</a> section.<br>
+                    4. Then press the create button under the <a href="#created"; style = "color: #add8e6";>Create</a> section and follow the download link to your new .inp file. <br>
+                    <br>    
+                    <hr  />
+                    To learn about Intemittent EPANET, its purpose and methodology, refer to the about section below. <br>
+                    <br>
+                        This code can be used by anyone who would like to, with permission of authors. The javascript was adapted <br> from certain python scripts to fit the web. For permission or any inquiries, please contact papostolicas18@nobles.edu. <br>
+                    <br>
+                        <p style="color: #add8e6";><b>Disclaimer: Neither Intermittent EPANET, the authors, or MIT are responsible for events stemming from use from this software. This software should be used with the understanding that it is in beta. Units from .inp files must be in LPS (Liters per Second).</b></p>
                         
                     </h5>
                     <hr />
@@ -117,24 +116,17 @@
                     <h3> About Intermittent EPANET</h3>
                     <p>
                     
-                    Intermittent EPANET is for engineers who use <a href = "https://www.epa.gov/water-research/epanet"; style = "color: #4FD3FE";>EPANET</a> to simulate water networks outside of the United States. In the United States, EPANET assumes that every customer gets as much water as they want, and solves for the network pressures to ensure that. However, the same is not true in some other countries. In these countries (such as India and other developing nations), customer consumption is strongly related to the pressure of water network. Therefore, this interface adapts your inputs into EPANET to model this. Please note that this technology is still in beta.
+                    Intermittent EPANET is for engineers who use <a href = "https://www.epa.gov/water-research/epanet"; style = "color: #add8e6";>EPANET</a> to simulate water networks outside of the United States. In the United States, EPANET assumes that every customer gets as much water as they want, and solves for the network pressures to ensure that. However, the same is not true in some other countries. In these countries (such as India and other developing nations), customer consumption is strongly related to the pressure of water network. Therefore, this interface adapts your inputs into EPANET to model this. Please note that this technology is still in beta.
                     </p>
 <!-----------------------------------------this is testing section for functions-------------------------------------------------->
                     <!-- here is where i want to add EPANETFUNCTIONS and EPANET Classes -->
                         <script src = "functions.js"></script>
-                        <script> 
-                        var a = new Junction ("identification", 5.5, 6.0, "muffin", true);
-                        var a2 = [a.ID, a.Elev, a.Demand, a.Pattern];
-                        var b = new AddWhiteSpaceColon(a2, a.Colon);
-                        b.setSpace();
-                        // document.getElementById("testing").innerHTML =  b; //  b.toString();
-                        </script>
 
 <!-----------------------------------------ONE------------------------------------------------------------------------------------------------->        <hr />
                     <a name="customize"></a>
                     <h3> Customize</h3>
                     <h6> Values already in boxes are default. If you do not wish to enter your own variables, skip this section.                         </h6>
-                    <h6>Enter the average #m between water main and HH's sump, meter, or equivalent.</h6>
+                    <h6>Enter the average pipe length (m) between the water main and a household’s sump, meter, or rooftank.</h6>
                     <textarea id="textbox1">10</textarea> <button id="enter1">Enter Variable</button> <a download="info.txt" id="downloadlink1"                                           style="display: none"></a>
                     <p id = "pipeLengthHH"></p>
 
@@ -175,7 +167,7 @@
                     </script>
 
 <!----------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the average roughness factor for existing pipes.</h6>
+                    <h6>Enter the average roughness factor for existing pipes..</h6>
                     <textarea id="textbox2">110</textarea> <button id="enter2">Enter Variable</button> <a download="info.txt" id="downloadlink2"                                           style="display: none"></a>
                     <p id = "pipeRoughHH"></p>
 
@@ -215,7 +207,7 @@
 
                     </script>
 <!------------------------------------------------------------------------------------------------------------------------------------------>
-                    <h6>Enter diamter of individual HH conectison</h6>
+                    <h6>Enter diameter of individual household connections (mm).</h6>
                     <textarea id="textbox3">15</textarea> <button id="enter3">Enter Variable</button> <a download="info.txt" id="downloadlink3"                                           style="display: none"></a>
                     <p id = "pipeDia"></p>
 
@@ -254,7 +246,7 @@
 
                     </script>
 <!------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the loss coefficient</h6>
+                    <h6>Enter the minor loss coefficient between the main and the household’s sump, meter, or rooftank.</h6>
                     <textarea id="textbox4">8</textarea> <button id="enter4">Enter Variable</button> <a download="info.txt" id="downloadlink4"                                           style="display: none"></a>
                     <p id = "lossCoef"></p>
 
@@ -294,7 +286,7 @@
                     </script>
 
 <!------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the x offset</h6>
+                    <h6>Enter the x-coordinate offset to use in EPANET so the added tank does not get placed on top of the junction it connects to.</h6>
                     <textarea id="textbox5">5</textarea> <button id="enter5">Enter Variable</button> <a download="info.txt" id="downloadlink5"                                           style="display: none"></a>
                     <p id = "xoff"></p>
 
@@ -335,7 +327,7 @@
 
                     
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the y offset</h6>
+                    <h6>Enter the y-coordinate offset to use in EPANET so the added tank does not get placed on top of the junction it connects to.</h6>
                     <textarea id="textbox7">5</textarea> <button id="enter7">Enter Variable</button> <a download="info.txt" id="downloadlink7"                                           style="display: none"></a>
                     <p id = "yoff"></p>
 
@@ -375,7 +367,7 @@
                     </script>
 
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the tankHeight</h6>
+                    <h6>Enter the height (not elevation) of the household’s tank or sump (m). For households without a physical tank, enter 0.1.</h6>
                     <textarea id="textbox6">1</textarea> <button id="enter6">Enter Variable</button> <a download="info.txt" id="downloadlink6"                                           style="display: none"></a>
                     <p id = "tankHeight"></p>
 
@@ -415,7 +407,7 @@
                     </script>
 
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the day percent</h6>
+                    <h6>Enter the percent (0 to 1) of a node’s daily demand that will fill a tank. For networks that do morning and evening supply, this might be 0.5 or 0.75. For networks that supply alternate days, this would then be 2. </h6>
                     <textarea id="textbox8">1</textarea> <button id="enter8">Enter Variable</button> <a download="info.txt" id="downloadlink8"                                           style="display: none"></a>
                     <p id = "dayPercent"></p>
 
@@ -454,7 +446,7 @@
 
                     </script>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>Enter the HH Daily</h6>
+                    <h6>The algorithm assumes some skeletonization has been done in the network model. It scales the parameters of the typical house given above by the number of houses that are combined at the node. To do this, an average household consumption value is needed (liters per household per day). </h6>
                     <textarea id="textbox9">1100</textarea> <button id="enter9">Enter Variable</button> <a download="info.txt" id="downloadlink9" style="display: none"></a>
                     <p id = "HHDaily"></p>
 
@@ -492,9 +484,88 @@
                         })();
 
                     </script>
+<!-------------------------------------------------------------------------------------------------------------------------------------------->
+                    <h6>The algorithm splits all demand nodes into three categories. The first category gets tanks at one elevation, the second gets tanks at a different elevation, and the third category is ignored. We use the first letter of the node’s name is determine which category it should go in. Category 1 nodes should start with this letter:</h6>
+                    <textarea id="textbox10">A</textarea> <button id="enter10">Enter Variable</button> <a download="info.txt" id="downloadlink10" style="display: none"></a>
+                    <p id = "Category1"></p>
+
+                    <script>
+                        var Category1 = "A";
+
+                        (function () {
+                            var textFile = null,
+                                makeTextFile = function (text) {
+                                    var data = new Blob([text], {type: 'text/plain'});
+
+                                    // If we are replacing a previously generated file we need to
+                                    // manually revoke the object URL to avoid memory leaks.
+                                    if (textFile !== null) {
+                                        window.URL.revokeObjectURL(textFile);
+                                    }
+
+                                    textFile = window.URL.createObjectURL(data);
+
+                                    return textFile;
+                                };
+
+
+                        enter10 = document.getElementById('enter10'),
+                        textbox10 = document.getElementById('textbox10');
+                            
+                        Category1 = textbox10.value;
+
+                        enter10.addEventListener('click', function () {
+                        var link = document.getElementById('downloadlink10');
+                        link.href = makeTextFile(textbox10.value);
+                        link.style.display = 'block';
+                        document.getElementById("Category1").innerHTML = "You entered: " + textbox10.value + " as the Category1.";
+                        }, false);
+                        })();
+
+                    </script>
 <!-- ---------------------->
-                    <h6>Enter the bpDepth</h6>
-                    <textarea id="textbox11">0</textarea> <button id="enter11">Enter Variable</button> <a download="info.txt" id="downloadlink11" style="display: none"></a>
+                    <h6>Category 2 nodes should start with this letter:</h6>
+                    <textarea id="textbox11">B</textarea> <button id="enter11">Enter Variable</button> <a download="info.txt" id="downloadlink11" style="display: none"></a>
+                    <p id = "Category2"></p>
+
+                    <script>
+                        var Category2 = "B";
+
+                        (function () {
+                            var textFile = null,
+                                makeTextFile = function (text) {
+                                    var data = new Blob([text], {type: 'text/plain'});
+
+                                    // If we are replacing a previously generated file we need to
+                                    // manually revoke the object URL to avoid memory leaks.
+                                    if (textFile !== null) {
+                                        window.URL.revokeObjectURL(textFile);
+                                    }
+
+                                    textFile = window.URL.createObjectURL(data);
+
+                                    return textFile;
+                                };
+
+
+                        enter11 = document.getElementById('enter11'),
+                        textbox11 = document.getElementById('textbox11');
+                            
+                        Category2 = textbox11.value;
+
+                        enter11.addEventListener('click', function () {
+                        var link = document.getElementById('downloadlink11');
+                        link.href = makeTextFile(textbox10.value);
+                        link.style.display = 'block';
+                        document.getElementById("Category2").innerHTML = "You entered: " + textbox11.value + " as the Category2.";
+                        }, false);
+                        })();
+
+                    </script>
+<!-- ---------------------->
+
+                    <h6>Category 1 nodes will have tanks placed at this height above the node’s elevation (m).</h6>
+                    <textarea id="textbox13">0</textarea> <button id="enter13">Enter Variable</button> <a download="info.txt" id="downloadlink13" style="display: none"></a>
                     <p id = "bpDepth"></p>
 
                     <script>
@@ -517,22 +588,22 @@
                                 };
 
 
-                        enter11 = document.getElementById('enter11'),
-                        textbox11 = document.getElementById('textbox11');
+                        enter13 = document.getElementById('enter13'),
+                        textbox13 = document.getElementById('textbox13');
                             
-                        bpdepth = textbox11.value;
+                        bpdepth = textbox13.value;
 
-                        enter11.addEventListener('click', function () {
-                        var link = document.getElementById('downloadlink11');
-                        link.href = makeTextFile(textbox11.value);
+                        enter13.addEventListener('click', function () {
+                        var link = document.getElementById('downloadlink13');
+                        link.href = makeTextFile(textbox13.value);
                         link.style.display = 'block';
-                        document.getElementById("bpDepth").innerHTML = "You entered: " + textbox11.value + " as the bpDepth.";
+                        document.getElementById("bpDepth").innerHTML = "You entered: " + textbox13.value + " as the bpDepth.";
                         }, false);
                         })();
 
                     </script>
-                    <h6>Enter the sDepth</h6>
-                    <textarea id="textbox10">0</textarea> <button id="enter10">Enter Variable</button> <a download="info.txt" id="downloadlink10" style="display: none"></a>
+                    <h6>Category 2 nodes will have tanks placed at this height above the node’s elevation (m).</h6>
+                    <textarea id="textbox12">0</textarea> <button id="enter12">Enter Variable</button> <a download="info.txt" id="downloadlink12" style="display: none"></a>
                     <p id = "sdepth"></p>
 
                     <script>
@@ -555,16 +626,16 @@
                                 };
 
 
-                        enter10 = document.getElementById('enter10'),
-                        textbox10 = document.getElementById('textbox10');
+                        enter12 = document.getElementById('enter12'),
+                        textbox12 = document.getElementById('textbox12');
                             
-                        sdepth = textbox10.value;
+                        sdepth = textbox12.value;
 
-                        enter10.addEventListener('click', function () {
-                        var link = document.getElementById('downloadlink10');
-                        link.href = makeTextFile(textbox10.value);
+                        enter12.addEventListener('click', function () {
+                        var link = document.getElementById('downloadlink12');
+                        link.href = makeTextFile(textbox12.value);
                         link.style.display = 'block';
-                        document.getElementById("sdepth").innerHTML = "You entered: " + textbox10.value + " as the sDepth.";
+                        document.getElementById("sdepth").innerHTML = "You entered: " + textbox12.value + " as the sDepth.";
                         }, false);
                         })();
 
@@ -585,20 +656,23 @@
                     
                     ######################################################################################### */
                     var MASTER_TEXT = ""; 
-                    var REASEMBELED; // this will be the large piece of text
+                    var REASEMBELED;
+                    var ERRORS = false;
+                    var num_error = 0;
                     /* #########################################################################################
                     /* the openFile function is an imitation of that displayed on http://www.javascripture.com/FileReader */
                             var openFile = function(event) {
-                            var input = event.target; // so this could be the file // i could put the execution here :)
-                            var reader = new FileReader(); // this could also be the file
+                            var input = event.target; 
+                            var reader = new FileReader(); // opening and reading the file
                             
 
 
-                    //////////////////////////////////////////////////////////////
-                            reader.onload = function(){
-                            text = reader.result; // or is the file this
-                            MASTER_TEXT = text;
-                      //      document.getElementById("meep").innerHTML = MASTER_TEXT;
+                            //////////////////////////////////////////////////////////////
+                            reader.onload = function(){ // as soon as the file is uploaded
+                            text = reader.result; // a string is produced from this function, which contains all our data 
+                            MASTER_TEXT = text; // text is turned into a new constant
+                                
+                            // below, we find the start values of each of the headers     
 
                             var JUNCTIONS_START = MASTER_TEXT.indexOf("[JUNCTIONS]");    
                             var RESERVOIRS_START = MASTER_TEXT.indexOf("[RESERVOIRS]");    
@@ -654,6 +728,9 @@
                             document.getElementById("BACKDROP").innerHTML = MASTER_TEXT.substring(BACKDROP_START,END_START);
                             document.getElementById("END").innerHTML = MASTER_TEXT.substring(END_START, MASTER_TEXT.length); */
                             
+                            // the below variables we are not changing, just simply parsing them so we can reassemble them.
+                            // assumptions that all inp file have these headings in a specific order. 
+                                
                             var RESERVOIRS = MASTER_TEXT.substring(RESERVOIRS_START,TANKS_START);
                             var PUMPS = MASTER_TEXT.substring(PUMPS_START, VALVES_START);
                             var VALVES = MASTER_TEXT.substring(VALVES_START, TAGS_START);
@@ -677,24 +754,31 @@
                             var BACKDROP = MASTER_TEXT.substring(BACKDROP_START,END_START);
                             var END = MASTER_TEXT.substring(END_START, MASTER_TEXT.length); 
                                 
-                                
+                            // These are the sections that we are interested in
                             var JUNCTIONS = MASTER_TEXT.substring(JUNCTIONS_START,RESERVOIRS_START);
-                            
                             var TANKS = MASTER_TEXT.substring(TANKS_START,PIPES_START);
                             var COORDINATES = MASTER_TEXT.substring(COORDINATES_START,VERTICES_START);
                             var DEMANDS = MASTER_TEXT.substring(DEMANDS_START,STATUS_START);
                             var PIPES = MASTER_TEXT.substring(PIPES_START,PUMPS_START);
                              
-                            /////////////// this is for parsing junctions    
+                            /////////////// Below section is for parsing junctions, tanks, demands, pipes, and coordiantes.
+                            // assumptions include that semi colon is present at the end of line (except for coordinates) and that headings are in order.
+                            // we are basically moving down this section, line by line. Each line is then broken up by tabs. 
+                            // once one line is finished, we proceed to the next, each value for each line is added to make a new Junction
+                            // the junctions are then put into an array in which we can organize and modify them
+                            ///////////////
+                                
                             var ARRAY_OF_JUNCTIONS = [];                
                             var JUNCTIONS_DATA_START = JUNCTIONS.indexOf("Pattern") + "Pattern".length;
                             var JUNCTION_HEADER = JUNCTIONS.substring(0, JUNCTIONS_DATA_START);
+
                                 
                             JUNCTIONS = JUNCTIONS.substring(JUNCTIONS_DATA_START,JUNCTIONS.length);
                             
                             var counter = JUNCTIONS.match(/;/gi).length;
                             
-                            var JUNCTION_ROW, PRESERVE, firstIndent, secondIndent, thirdIndent, fourthIndent;
+                            var JUNCTION_ROW, PRESERVE, firstIndent, secondIndent, thirdIndent, fourthIndent, placeH;
+                            if (counter > 0){
                             for (var i = 0; i < counter; i++){
                             //    
                                 JUNCTION_ROW = JUNCTIONS.substring(0,JUNCTIONS.indexOf(";"));
@@ -720,7 +804,32 @@
                                 JUNCTION_ROW = JUNCTIONS.substring(0, JUNCTIONS.indexOf(";")+1);
                                 JUNCTIONS_DATA_START = JUNCTIONS.indexOf(PRESERVE) + PRESERVE.length + 1;
                                 JUNCTIONS = JUNCTIONS.substring(JUNCTIONS_DATA_START, JUNCTIONS.length);
-                            }   
+                            }
+                            }
+                            else {
+                                for (var w = 0; JUNCTIONS.length > 5; w+=1){
+                                    console.log("yes");
+                                    firstIndent = JUNCTIONS.substring(0, JUNCTIONS.indexOf("\t"));
+                                    JUNCTIONS = JUNCTIONS.substring(firstIndent.length + 1, JUNCTIONS.length); 
+                                    
+                                    secondIndent = JUNCTIONS.substring(0, JUNCTIONS.indexOf("\t"));
+                                    JUNCTIONS = JUNCTIONS.substring(secondIndent.length + 1, JUNCTIONS.length); 
+
+                                    
+                                    thirdIndent = JUNCTIONS.substring(0, JUNCTIONS.indexOf("\t"));
+                                    JUNCTIONS = JUNCTIONS.substring(thirdIndent.length + 1, JUNCTIONS.length); 
+                                    
+                                    fourthIndent = JUNCTIONS.substring(0, JUNCTIONS.indexOf("\t"));
+                                    JUNCTIONS = JUNCTIONS.substring(fourthIndent.length + 1, JUNCTIONS.length); 
+                                    
+                                    
+                                    ARRAY_OF_JUNCTIONS.push(new Junction(firstIndent, secondIndent,thirdIndent, fourthIndent, false));
+                                }
+                            }
+                            // to fix weird error
+                            ARRAY_OF_JUNCTIONS[0].ID = ARRAY_OF_JUNCTIONS[0].ID.substring(9,ARRAY_OF_JUNCTIONS[0].ID.length)
+                            console.log( ARRAY_OF_JUNCTIONS);
+
                             //////////// Now, we parse TANKS! :) //////////////////////////////
                             var ARRAY_OF_TANKS = [];                
                             var TANKS_DATA_START = TANKS.indexOf("Volcurve") + "Volcurve".length;
@@ -730,7 +839,8 @@
                             
                             var TANKCOUNTER = TANKS.match(/;/gi).length;
                             
-                            var TANKS_ROW, TPRESERVE, T1, T2, T3, T4, T5, T6, T7;
+                            var TANKS_ROW, TPRESERVE, T1, T2, T3, T4, T5, T6, T7, placeHold;
+                            if (TANKCOUNTER > 0){
                             for (var i = 0; i < TANKCOUNTER; i++){
                             //    
                                 TANKS_ROW = TANKS.substring(0,TANKS.indexOf(";"));
@@ -764,6 +874,39 @@
                                 TANKS = TANKS.substring(TANKS_DATA_START, TANKS.length);
                             }  
                             ARRAY_OF_TANKS.splice(0,2);
+                            }
+                            else {
+                                for (var w = 0; TANKS.length > 5; w+=1){
+                                    console.log("yes");
+                                    T1 = TANKS.substring(0, TANKS.indexOf("\t"));
+                                    TANKS = TANKS.substring(T1.length + 1, TANKS.length); 
+
+                                    T2 = TANKS.substring(0, TANKS.indexOf("\t"));
+                                    TANKS = TANKS.substring(T2.length + 1, TANKS.length); 
+                                    
+                                    T3 = TANKS.substring(0, TANKS.indexOf("\t"));
+                                    TANKS = TANKS.substring(T3.length + 1, TANKS.length); 
+                                    
+                                    T4 = TANKS.substring(0, TANKS.indexOf("\t"));
+                                    TANKS = TANKS.substring(T4.length + 1, TANKS.length); 
+
+                                    T5 = TANKS.substring(0, TANKS.indexOf("\t"));
+                                    TANKS = TANKS.substring(T5.length + 1, TANKS.length); 
+                                    
+                                    T6 = TANKS.substring(0, TANKS.indexOf("\t"));
+                                    TANKS = TANKS.substring(T6.length + 1, TANKS.length);
+                                    
+                                    T7 = TANKS.substring(0, TANKS.indexOf("\t"));
+                                    TANKS = TANKS.substring(T7.length + 1, TANKS.length); 
+
+                                    
+                                    placeHold = new Tank(T1, T2, T3, T4, T5, T6, T7, false);
+                                    ARRAY_OF_TANKS.push(placeHold);
+                                }
+                                    ARRAY_OF_TANKS.splice(0,2);
+
+                            }
+   
                                
                             ////////////////////////    
                             var ARRAY_OF_PIPES = [];                
@@ -774,42 +917,76 @@
                             
                             var PIPECOUNTER = PIPES.match(/;/gi).length;
                             
-                            var PIPE_ROW, PIPE_PRESERVE, P1, P2, P3, P4, P5, P6, P7, P8;
-                            for (var i = 0; i < PIPECOUNTER; i++){
-                            //    
-                                PIPE_ROW = PIPES.substring(0,PIPES.indexOf(";"));
-                                PIPE_PRESERVE = PIPE_ROW;
-                            ///
-                                P1 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
-                                PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
-                            ///
-                                P2 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
-                                PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
+                            var PIPE_ROW, PIPE_PRESERVE, P1, P2, P3, P4, P5, P6, P7, P8, incase;
+                            if (PIPECOUNTER > 0){
+                                for (var i = 0; i < PIPECOUNTER; i++){
+                                    //    
+                                    PIPE_ROW = PIPES.substring(0,PIPES.indexOf(";"));
+                                    PIPE_PRESERVE = PIPE_ROW;
+                                    ///
+                                    P1 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
+                                    PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
+                                    ///
+                                    P2 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
+                                    PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
                                 
-                                P3 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
-                                PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
+                                    P3 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
+                                    PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
                                 
-                                P4 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
-                                PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
+                                    P4 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
+                                    PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
 
-                                P5 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
-                                PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
+                                    P5 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
+                                    PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
                                 
-                                P6 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
-                                PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
+                                    P6 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
+                                    PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
                                 
-                                P7 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
-                                PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
+                                    P7 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
+                                    PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
                                 
-                                P8 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
-                                PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
+                                    P8 = PIPE_ROW.substring(0, PIPE_ROW.indexOf("\t"));
+                                    PIPE_ROW = PIPE_ROW.substring(PIPE_ROW.indexOf("\t")+1, PIPE_ROW.length);
 
-                                ARRAY_OF_PIPES[i] = new Pipe (P1, P2, P3, P4, P5, P6, P7, P8, true);
-                                
-                                PIPE_ROW = PIPES.substring(0, PIPES.indexOf(";")+1);
-                                PIPES_DATA_START = PIPES.indexOf(PIPE_PRESERVE) + PIPE_PRESERVE.length + 1;
-                                PIPES = PIPES.substring(PIPES_DATA_START, PIPES.length);
-                            }  
+                                    ARRAY_OF_PIPES[i] = new Pipe (P1, P2, P3, P4, P5, P6, P7, P8, true);
+                                  
+                                    PIPE_ROW = PIPES.substring(0, PIPES.indexOf(";")+1);
+                                    PIPES_DATA_START = PIPES.indexOf(PIPE_PRESERVE) + PIPE_PRESERVE.length + 1;
+                                    PIPES = PIPES.substring(PIPES_DATA_START, PIPES.length);
+                                }  
+                            }
+                            else{
+                                for (var w = 0; PIPES.length > 5; w+=1){
+                                    console.log("yes");
+                                    P1 = PIPES.substring(0, PIPES.indexOf("\t"));
+                                    PIPES = PIPES.substring(P1.length + 1, PIPES.length); 
+                                    
+                                    P2 = PIPES.substring(0, PIPES.indexOf("\t"));
+                                    PIPES = PIPES.substring(P2.length + 1, PIPES.length); 
+                                    
+                                    P3 = PIPES.substring(0, PIPES.indexOf("\t"));
+                                    PIPES = PIPES.substring(P3.length + 1, PIPES.length); 
+
+                                    P4 = PIPES.substring(0, PIPES.indexOf("\t"));
+                                    PIPES = PIPES.substring(P4.length + 1, PIPES.length); 
+
+                                    P5 = PIPES.substring(0, PIPES.indexOf("\t"));
+                                    PIPES = PIPES.substring(P5.length + 1, PIPES.length); 
+                                    
+                                    P6 = PIPES.substring(0, PIPES.indexOf("\t"));
+                                    PIPES = PIPES.substring(P6.length + 1, PIPES.length); 
+                                    
+                                    P7 = PIPES.substring(0, PIPES.indexOf("\t"));
+                                    PIPES = PIPES.substring(P7.length + 1, PIPES.length); 
+
+                                    P8 = PIPES.substring(0, PIPES.indexOf("\t"));
+                                    PIPES = PIPES.substring(P8.length + 1, PIPES.length); 
+
+                                    inCase = new Pipe(P1, P2, P3, P4, P5, P6, P7, P8, false);
+                                    ARRAY_OF_PIPES.push(inCase);
+                                }
+  
+                            }
                            /* var ARRAY_OF_PIPES = [];                
                             var PIPES_DATA_START = PIPES.indexOf("Status") + "Status".length;
                             var PIPES_HEADER = PIPES.substring(0, PIPES_DATA_START);
@@ -859,34 +1036,48 @@
                             var ARRAY_OF_DEMANDS = [];                
                             var DEMANDS_DATA_START = DEMANDS.indexOf("Category") + "Category".length;
                             var DEMANDS_HEADER = DEMANDS.substring(0, DEMANDS_DATA_START);
-                            var DEMAND_ROW, DEMAND_PRESERVE, D1, D2;
+                            var DEMAND_ROW, DEMAND_PRESERVE, D1, D2, holder;
                             DEMANDS = DEMANDS.substring(DEMANDS_DATA_START, DEMANDS.length);
                             var DEMANDCOUNTER = 0;
                                 
                             if (DEMANDS.indexOf(";") > 0){
                                 DEMANDCOUNTER = DEMANDS.match(/;/gi).length;
                             
-                            for (var t = 0; t < DEMANDCOUNTER; t++){
-                            //    
-                                DEMAND_ROW = DEMANDS.substring(0,DEMANDS.indexOf(";"));
-                                DEMAND_PRESERVE = DEMAND_ROW;
-                            ///
-                                D1 = DEMAND_ROW.substring(0, DEMAND_ROW.indexOf("\t") + 1);
+                                for (var t = 0; t < DEMANDCOUNTER; t++){
+                                    //    
+                                    DEMAND_ROW = DEMANDS.substring(0,DEMANDS.indexOf(";"));
+                                    DEMAND_PRESERVE = DEMAND_ROW;
+                                    ///
+                                    D1 = DEMAND_ROW.substring(0, DEMAND_ROW.indexOf("\t") + 1);
                                 
-                                DEMAND_ROW = DEMAND_ROW.substring(DEMAND_ROW.indexOf("\t")+1, DEMAND_ROW.length);
-                                D2 = DEMAND_ROW.substring(0, DEMAND_ROW.indexOf("\t") + 1);
+                                    DEMAND_ROW = DEMAND_ROW.substring(DEMAND_ROW.indexOf("\t")+1, DEMAND_ROW.length);
+                                    D2 = DEMAND_ROW.substring(0, DEMAND_ROW.indexOf("\t") + 1);
                                 
-                                DEMAND_ROW = DEMAND_ROW.substring(DEMAND_ROW.indexOf("\t")+1, DEMAND_ROW.length);
-                                D3 = DEMAND_ROW.substring(0, DEMAND_ROW.indexOf("\t"));
-                                //DEMAND_ROW = DEMAND_ROW.substring(DEMAND_ROW.indexOf("\t")+1, DEMAND_ROW.length);
+                                    DEMAND_ROW = DEMAND_ROW.substring(DEMAND_ROW.indexOf("\t")+1, DEMAND_ROW.length);
+                                    D3 = DEMAND_ROW.substring(0, DEMAND_ROW.indexOf("\t"));
+                                    //DEMAND_ROW = DEMAND_ROW.substring(DEMAND_ROW.indexOf("\t")+1, DEMAND_ROW.length);
                                 
-                                ARRAY_OF_DEMANDS[t] = new DemandSpec (D1, parseFloat(D2), "", true);
+                                    ARRAY_OF_DEMANDS[t] = new DemandSpec (D1, parseFloat(D2), "", true);
                                 
-                                //DEMAND_ROW = DEMANDS.substring(0, DEMANDS.indexOf(";")+1);
-                                DEMANDS_DATA_START = DEMANDS.indexOf(DEMAND_PRESERVE) + DEMAND_PRESERVE.length + 1;
-                                DEMANDS = DEMANDS.substring(DEMANDS_DATA_START, DEMANDS.length); 
+                                    //DEMAND_ROW = DEMANDS.substring(0, DEMANDS.indexOf(";")+1);
+                                    DEMANDS_DATA_START = DEMANDS.indexOf(DEMAND_PRESERVE) + DEMAND_PRESERVE.length + 1;
+                                    DEMANDS = DEMANDS.substring(DEMANDS_DATA_START, DEMANDS.length); 
+                                }
                             }
+                            else {
+                                for (var w = 0; DEMANDS.length > 5; w+=1){
+                                    console.log("yes");
+                                    D1 = DEMANDS.substring(0, DEMANDS.indexOf("\t"));
+                                    DEMANDS = DEMANDS.substring(D1.length + 1, DEMANDS.length); 
+                                    
+                                    D2 = DEMANDS.substring(0, DEMANDS.indexOf("\t"));
+                                    DEMANDS = DEMANDS.substring(D2.length + 1, DEMANDS.length); 
+                                    
+                                    holder = new DemandSpec(D1, parseFloat(D2),"", false);
+                                    ARRAY_OF_DEMANDS.push(holder);
+                                }
                             }
+                            
                             
                             
                             ////
@@ -917,91 +1108,9 @@
                         //document.getElementById("COORDINATES").innerHTML = ARRAY_OF_COORDINATES;
                         //document.getElementById("TANKS").innerHTML = ARRAY_OF_TANKS;
                         //document.getElementById("PIPES").innerHTML = ARRAY_OF_PIPES; // √
-                        
-                        // editing...
-                                
-                        // we need to ROUNDKEYVALUES
-                        var ARRAY_OF_JUNCTION_IDS = [];
-                        var match = 0;
-                        var ccc = 0;
-                        var finalTester = "";
-                        for (element_j in ARRAY_OF_JUNCTIONS){
-                            
-                            //console.log(ARRAY_OF_JUNCTIONS[element_j].ID.length);
-                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace(" ", "");
-                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace("/t", "");
-                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace("/n", "");
-                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.substring(2, ARRAY_OF_JUNCTIONS[element_j].ID.length - 10);
-                            //console.log(ARRAY_OF_JUNCTIONS[element_j].ID);
-                            //console.log(ARRAY_OF_JUNCTIONS[element_j].ID.length);
-                            //console.log("demands");
-
-                            ARRAY_OF_JUNCTION_IDS.push(ARRAY_OF_JUNCTIONS[element_j].ID); 
-                        }
-                        //ARRAY_OF_JUNCTION_IDS.shift();        
-                        //  for every entry in the demands list, pop it, and =+ the demand of that junction
-                        var ji = 0;
-                                
-                        //console.log("J-19").length;
-                        for (dem in ARRAY_OF_DEMANDS){
-                            //console.log(ARRAY_OF_DEMANDS[dem].ID.length);
-                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/t','');
-                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace(' ','');
-                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/n','');
-                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.substring(3, ARRAY_OF_DEMANDS[dem].ID.length - 11);
-                            //console.log(ARRAY_OF_DEMANDS[dem].ID);
-                            //console.log(ARRAY_OF_DEMANDS[dem].ID.length);
-                            //console.log("juctions");
-                            ji= ARRAY_OF_JUNCTION_IDS.indexOf(ARRAY_OF_DEMANDS[dem].ID);
-                            
-                            if (ji >= 0){
-                            ARRAY_OF_JUNCTIONS[ji].Demand += ARRAY_OF_DEMANDS[dem].Demand;
-                            }
-                            else{ console.log("ERROR");}
-                            //console.log(ji);
-                            
-                            
-                        }
-                        //var testtest = ARRAY_OF_JUNCTION_IDS.indexOf(" J-19            ");
-                        //document.getElementById("DEMANDS").innerHTML = testtest;
-                        //document.getElementById("PIPES").innerHTML = ji; // √
-
-                        ARRAY_OF_DEMANDS = [];
-                        
-                        for (z in ARRAY_OF_JUNCTIONS){
-                            var abc = new RoundBetter (parseFloat(ARRAY_OF_JUNCTIONS[z].Elev),2);
-                            ARRAY_OF_JUNCTIONS[z].Elev = abc.awesome;
-                        }
-                                
-                        for (y in ARRAY_OF_TANKS){
-                            var defg = new RoundBetter (parseFloat(ARRAY_OF_TANKS[y].Elev),2);
-                            ARRAY_OF_TANKS[y].Elev = defg.awesome;
-                        }                 
-                        for (x in ARRAY_OF_PIPES){
-                            var hijk = new RoundBetter (parseFloat(ARRAY_OF_PIPES[x].Length),2);
-                            ARRAY_OF_PIPES[x].Length = hijk.awesome;
-                        }
-                        /*
-                        for t in tanks:
-                            t.Elev=round(t.Elev,2)
-
-                        for p in pipes:
-                            p.Length=round(p.Length,2)
-
-                        */      
-                        var KList=[];
-                        var LList=[];
-                                
-                        for (piplup in ARRAY_OF_JUNCTIONS){
-                            if (ARRAY_OF_JUNCTIONS[piplup].ID.substring(0,2) != "JP"){ // ERROR HERE
-                                LList.push(ARRAY_OF_JUNCTIONS[piplup].ID); //if not JP -> L-block -> valve
-                            } 
-                            else{
-                                KList.push(ARRAY_OF_JUNCTIONS[piplup].ID); // else K-block -> no pumps but OHT
-                            }    
-                        }
-                                                //#######################################################
+                        //#######################################################
                         // for constant inputting:
+        
                                 
                         tankHeight  = parseFloat(textbox6.value);
                     
@@ -1021,16 +1130,106 @@
                                 
                         HHDaily = parseFloat(textbox9.value);
                                 
-                        sdepth = parseFloat(textbox10.value);
+                        sdepth = parseFloat(textbox12.value);
                                 
-                        bpDepth = parseFloat(textbox11.value);
+                        bpDepth = parseFloat(textbox13.value);
                 
-                        // end of constant inputation analysis
+                        Category1 = textbox10.value;
+                        Category2 = textbox11.value;
+                        // end of input analysis
 
                         // ######################################################  
+
+                        ///////////// This is the section in which we edit the array, thereby editing the file.
+                        // Below, we delete any whitespace from the elements in Array_Of__Junctions and Array_Of_Demands
+                        // in order the we can compare them. 
+                        // Then, we round all numbers with more than two decimal points to two decimal points
+                        /////////////
+        
+                                
+                        
+                        var ARRAY_OF_JUNCTION_IDS = [];
+                        var match = 0;
+                        var ccc = 0;
+                        var finalTester = "";
+                        for (element_j in ARRAY_OF_JUNCTIONS){
+                            
+                            //console.log(ARRAY_OF_JUNCTIONS[element_j].ID.length);
+                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace(" ", "");
+                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace("/t", "");
+                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace("/n", "");
+                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.substring(2, ARRAY_OF_JUNCTIONS[element_j].ID.length - 10);
+                            //console.log(ARRAY_OF_JUNCTIONS[element_j].ID);
+                            //console.log(ARRAY_OF_JUNCTIONS[element_j].ID.length);
+                            //console.log("demands");
+
+                            ARRAY_OF_JUNCTION_IDS[element_j] = (ARRAY_OF_JUNCTIONS[element_j].ID); 
+                        }
+                        //ARRAY_OF_JUNCTION_IDS.shift();        
+                        //  for every entry in the demands list, pop it, and =+ the demand of that junction
+                        var ji = 0;
+                            console.log(ji);
+                        //console.log("J-19").length;
+                        for (dem in ARRAY_OF_DEMANDS){
+                            //console.log(ARRAY_OF_DEMANDS[dem].ID.length);
+                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/t','');
+                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace(' ','');
+                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/n','');
+                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.substring(3, ARRAY_OF_DEMANDS[dem].ID.length - 11);
+                            //console.log(ARRAY_OF_DEMANDS[dem].ID);
+                            //console.log(ARRAY_OF_DEMANDS[dem].ID.length);
+                            //console.log("juctions");
+                            ji= ARRAY_OF_JUNCTION_IDS.indexOf(ARRAY_OF_DEMANDS[dem].ID);
+                            if(ji < 0){
+                            ERRORS = true;
+                            num_error += 1;
+                            console.log("Something went wrong");
+                            }
+                            
+                            if (ji >= 0){
+                            ARRAY_OF_JUNCTIONS[ji].Demand += ARRAY_OF_DEMANDS[dem].Demand;
+                            console.log("Something went right :)");
+                            }
+                            
+                            
+                        }
+                        num_error -= 2;
+
+                        ARRAY_OF_DEMANDS = [];
+                        
+                        for (z in ARRAY_OF_JUNCTIONS){
+                            var abc = new RoundBetter (parseFloat(ARRAY_OF_JUNCTIONS[z].Elev),2);
+                            ARRAY_OF_JUNCTIONS[z].Elev = abc.awesome;
+                        }
+                                
+                        for (y in ARRAY_OF_TANKS){
+                            var defg = new RoundBetter (parseFloat(ARRAY_OF_TANKS[y].Elev),2);
+                            ARRAY_OF_TANKS[y].Elev = defg.awesome;
+                        }                 
+                        for (x in ARRAY_OF_PIPES){
+                            var hijk = new RoundBetter (parseFloat(ARRAY_OF_PIPES[x].Length),2);
+                            ARRAY_OF_PIPES[x].Length = hijk.awesome;
+                        }
+                        var KList=[];
+                        var LList=[];
+                        for (el in ARRAY_OF_JUNCTIONS){
+                            if (ARRAY_OF_JUNCTIONS[el].ID.substring(0,1) == Category1){
+                                LList.push(ARRAY_OF_JUNCTIONS[el].ID); //if not JP -> L-block -> valve
+                            } 
+                            else if (ARRAY_OF_JUNCTIONS[el].ID.substring(0,1) == Category2){
+                                KList.push(ARRAY_OF_JUNCTIONS[el].ID); // else K-block -> no pumps but OHT
+                            }    
+                        }
+                        console.log(KList);
+                        console.log(LList);
                         //var HHDaily = 1100;
                         //var sdepth = 0;
                         //var bpdepth = 0;
+                        
+                        ///////////// Here is where we add tanks and necessary pipes and coordinates
+                        // If there is a demand, we add it to an array, fixlist. 
+                        //////////// Then, we fix that element, deleting the demand and adding necessary elements to fulfill demand
+                                
                         var householdDemand = parseFloat(HHDaily);
                         var bpList = LList;
                         var sList = KList;
@@ -1076,7 +1275,6 @@
                     
                     addedTank = new Tank(" TB"+String(k) + "        \t", ARRAY_OF_JUNCTIONS[fixlist[fix]].Elev + extraTankElev, 0, 0, tankHeight, newSizes.newTankDia, 0, true);
                     
-                    //addedTank = new Tank("cheese", 5, 0,0,1,10,0,true);
                     ARRAY_OF_TANKS.push(addedTank);
                     // join with adequate pipes
                     ARRAY_OF_JUNCTIONS[fixlist[fix]].ID = ARRAY_OF_JUNCTIONS[fixlist[fix]].ID.substring(ARRAY_OF_JUNCTIONS[fixlist[fix]].ID.indexOf("\n") + "\n".length, ARRAY_OF_JUNCTIONS[fixlist[fix]].ID.length);
@@ -1123,7 +1321,10 @@
                                 
                         
                         // end editing!
-                        // REASSEMBLY BEGINS BELOW
+                                
+                        //////////// REASSEMBLY BEGINS BELOW
+                        // Now, we loop through all the elements and put them back together to make a new string
+                        ////////////
                                 
                         var ARRAY_OF_JUNCTIONS_PRINTED = "";
                         for (peep in ARRAY_OF_JUNCTIONS){
@@ -1166,7 +1367,12 @@
                         REASEMBELED += "\n " + "\n" + QUALITY + "\n " + "\n" + SOURCES + "\n " + "\n" + REACTIONS + "\n " + "\n" + MIXING + "\n " + "\n" + TIMES + "\n " + "\n" + REPORT + "\n " + "\n" + OPTIONS; // THERE IS SOMETHING WRONG WITH OPTIONS
                         REASEMBELED += "\n " + "\n" + COORDINATES_HEADER + ARRAY_OF_COORDINATES_PRINTED;
                         REASEMBELED += "\n " + "\n" + VERTICES + "\n " + "\n" + LABELS + "\n " + "\n" + BACKDROP + "\n " + "\n" + END;
-                                
+                        
+                        
+                        if (ERRORS){
+                            document.getElementById("ERROR_BOX").innerHTML = "Warning!! " + num_error + " errors detected.";
+
+                        }        
                         };
                         reader.readAsText(input.files[0]);
                         };
@@ -1176,11 +1382,13 @@
                     <button id="create">Create file</button> <a download="edited.inp" id="downloadlink" style="display: none">Download</a>
 
                      <hr />
+                    <p id="ERROR_BOX"></p>
                     <script>
                         
                 
 // ----------------------------------------------------------------------------------------------------------------------------------------- <-->
                  /* following code was inspired by 'uselesscode' and his/her response on http://stackoverflow.com/questions/8178825/create-text-file-in-javascript */
+                // this code turns a string into .txt file which then is renamed as a .inp file
                     
                         
                      (function () {
@@ -1285,7 +1493,7 @@
              <a href = "https://github.com/intermittent-EPANET/home.git">Check us out on Github! </a>
             <hr />
 
-            <h6> <i>Disclaimer: Intermittent EPANET should be used strictly for simulation purposes and not for technical calculations. Intermittent EPANET, the authors, and MIT do not assume responsibility for anything stemming from use of this program. The code can be reused with permission of the authors.</i></h6>
+            
             
 
         </div>
