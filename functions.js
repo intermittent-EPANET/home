@@ -83,12 +83,12 @@ function Junction(ID, Elev, Demand, Pattern, Colon) {
     this.toString = function () {
         var white = "        \t";
         //this.ID = this.ID.substring(2, this.ID.length -10);
-        if (Colon){
-        return this.ID + white + String(this.Elev) + white + String(this.Demand) + white + String(this.Pattern) + white + ";" + "\n";
+        if (Colon) {
+            return this.ID + white + String(this.Elev) + white + String(this.Demand) + white + String(this.Pattern) + white + ";" + "\n";
         }
-        else {
+        else{
             return this.ID + white + String(this.Elev) + white + String(this.Demand) + white + String(this.Pattern) + white + " " + "\n";
-        }
+            }
     };
     this.flatten = function () {
         return new AddWhiteSpaceColon([this.ID, this.Elev, this.Demand, this.Pattern], this.Colon);
@@ -108,11 +108,11 @@ function Tank(ID, Elev, InitLvl, MinLvl, MaxLvl, Dia, MinVol, Colon) {
     
     this.toString = function () {
         var white = "        \t";
-        if (Colon){
-        return white + this.ID + white + String(this.Elev) + white + String(this.InitLvl) + white + String(this.MinLvl) + white + String(this.MaxLvl) + white + String(this.Dia) + white + String(this.MinVol) + white + ";" + "\n";
+        if (Colon) {
+            return white + this.ID + white + String(this.Elev) + white + String(this.InitLvl) + white + String(this.MinLvl) + white + String(this.MaxLvl) + white + String(this.Dia) + white + String(this.MinVol) + white + ";" + "\n";
         }
         else{
-        return white + this.ID + white + String(this.Elev) + white + String(this.InitLvl) + white + String(this.MinLvl) + white + String(this.MaxLvl) + white + String(this.Dia) + white + String(this.MinVol) + white + " " + "\n";
+            return white + this.ID + white + String(this.Elev) + white + String(this.InitLvl) + white + String(this.MinLvl) + white + String(this.MaxLvl) + white + String(this.Dia) + white + String(this.MinVol) + white + " " + "\n";
         }
     };
     /* Tank.flatten = function () {
@@ -455,3 +455,16 @@ function SizeConversion(demand, householdDemand, dayPercent, pipeDia, lossCoef, 
     this.newLossCoef = newLossCoef;
 }
 
+function isolate(non_iso){
+    "use strict";
+    this.isolated = "did not function";
+    
+    var toReturn = "";
+    for (var q = 0; q < non_iso.length; q++){
+        if (non_iso.substring(q,q+1) == "a" || non_iso.substring(q,q+1) == "b" || non_iso.substring(q,q+1) == "c" || non_iso.substring(q,q+1) == "d" || non_iso.substring(q,q+1) == "e" || non_iso.substring(q,q+1) == "f" || non_iso.substring(q,q+1) == "g" || non_iso.substring(q,q+1) == "h" || non_iso.substring(q,q+1) == "i" || non_iso.substring(q,q+1) == "j" || non_iso.substring(q,q+1) == "k" || non_iso.substring(q,q+1) == "l" || non_iso.substring(q,q+1) == "m" || non_iso.substring(q,q+1) == "n" || non_iso.substring(q,q+1) == "o" || non_iso.substring(q,q+1) == "p" || non_iso.substring(q,q+1) == "q" || non_iso.substring(q,q+1) == "r" || non_iso.substring(q,q+1) == "s" || non_iso.substring(q,q+1) == "t" || non_iso.substring(q,q+1) == "u" || non_iso.substring(q,q+1) == "v" || non_iso.substring(q,q+1) == "w" || non_iso.substring(q,q+1) == "x" || non_iso.substring(q,q+1) == "y" || non_iso.substring(q,q+1) == "z" || non_iso.substring(q,q+1) == "1" || non_iso.substring(q,q+1) == "2" || non_iso.substring(q,q+1) == "3" || non_iso.substring(q,q+1) == "4" || non_iso.substring(q,q+1) == "5" || non_iso.substring(q,q+1) == "6" || non_iso.substring(q,q+1) == "7" || non_iso.substring(q,q+1) == "8" || non_iso.substring(q,q+1) == "9" || non_iso.substring(q,q+1) == "0" || non_iso.substring(q,q+1) == "A" || non_iso.substring(q,q+1) == "B" || non_iso.substring(q,q+1) == "C" || non_iso.substring(q,q+1) == "D" || non_iso.substring(q,q+1) == "E" || non_iso.substring(q,q+1) == "F" || non_iso.substring(q,q+1) == "G" || non_iso.substring(q,q+1) == "H" || non_iso.substring(q,q+1) == "I" || non_iso.substring(q,q+1) == "J" || non_iso.substring(q,q+1) == "K" || non_iso.substring(q,q+1) == "L" || non_iso.substring(q,q+1) == "M" || non_iso.substring(q,q+1) == "N" || non_iso.substring(q,q+1) == "O" || non_iso.substring(q,q+1) == "P" || non_iso.substring(q,q+1) == "Q" || non_iso.substring(q,q+1) == "R" || non_iso.substring(q,q+1) == "S" || non_iso.substring(q,q+1) == "T" || non_iso.substring(q,q+1) == "U" || non_iso.substring(q,q+1) == "V" || non_iso.substring(q,q+1) == "W" || non_iso.substring(q,q+1) == "X" || non_iso.substring(q,q+1) == "Y" || non_iso.substring(q,q+1) == "Z" ){
+            toReturn += non_iso.substring(q,q+1);
+        }
+    }
+    
+    this.isolated = toReturn;
+}
