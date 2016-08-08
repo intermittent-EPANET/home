@@ -95,12 +95,12 @@
                     <h3>Instructions</h3>
                     <h5>
                         To use Intermittent EPANET, follow these steps. <hr  />
-                    1. Convert a suitable .inp file from your hydraulic modeling software to a .txt file (example shown below). This can be done by simply renaming the extension to be .txt. Windows users can use Notepad for this, while Mac users can use textEdit. <br>
+                    1. Locate the suitable .inp file from your hydraulic modeling software that you would like to use. This interface also excepts equivalent .txt files. <br>
                     <img src="Screen Shot 2016-07-31 at 2.53.54 PM.png" alt="Example of acceptable .inp file" style="width:700px;height:700px;">
                     <p> Example of suitable .inp file</p>
 
-                    2. OPTIONAL: If you would like to customize your certain variables, type them in the textboxes under the <a href="#customize"; style = "color: #add8e6";>Customize</a> section. Simply type in the new value (no spaces or letters), and press "Enter Variable." <br>
-                    3. Upload your suitable .txt file under the <a href="#upload"; style="color: #add8e6";>Upload</a> section.<br>
+                    2. If you would like to customize your certain variables, type them in the textboxes under the <a href="#customize"; style = "color: #add8e6";>Customize</a> section. Simply type in the new value (no spaces or letters), and press "Enter Variable." Note that some sections are mandatory for the program to function. These variables are labeled as "MANDATORY."<br>
+                    3. Upload your suitable file under the <a href="#upload"; style="color: #add8e6";>Upload</a> section.<br>
                     4. Then press the create button under the <a href="#created"; style = "color: #add8e6";>Create</a> section and follow the download link to your new .inp file. <br>
                     <br>    
                     <hr  />
@@ -485,7 +485,7 @@
 
                     </script>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>The algorithm splits all demand nodes into three categories. The first category gets tanks at one elevation, the second gets tanks at a different elevation, and the third category is ignored. We use the first letter of the node’s name is determine which category it should go in. Category 1 nodes should start with this letter:</h6>
+                    <h6> MANDATORY: The algorithm splits all demand nodes into three categories. The first category gets tanks at one elevation, the second gets tanks at a different elevation, and the third category is ignored. We use the first letter of the node’s name is determine which category it should go in. Category 1 nodes should start with this letter:</h6>
                     <textarea id="textbox10">J</textarea> <button id="enter10">Enter Variable</button> <a download="info.txt" id="downloadlink10" style="display: none"></a>
                     <p id = "Category1"></p>
 
@@ -524,7 +524,7 @@
 
                     </script>
 <!-- ---------------------->
-                    <h6>Category 2 nodes should start with this letter:</h6>
+                    <h6> STRONGLY SUGGESTED: Category 2 nodes should start with this letter:</h6>
                     <textarea id="textbox11">L</textarea> <button id="enter11">Enter Variable</button> <a download="info.txt" id="downloadlink11" style="display: none"></a>
                     <p id = "Category2"></p>
 
@@ -645,7 +645,7 @@
 
                     <h4> Upload </h4>
 
-                    <h5> Please upload a suitable .txt file below. If you are converting multiple files, refresh the page before doing so.</h5>
+                    <h5> Please upload a suitable file below. If you are converting multiple files, refresh the page before doing so.</h5>
                     <input type='file' accept='text/plain/inp' onchange='openFile(event)'><br>
                     <img id='output'>
                     
@@ -672,8 +672,8 @@
                             text = reader.result; // a string is produced from this function, which contains all our data 
                             MASTER_TEXT = text; // text is turned into a new constant
                                 
-                            // below, we find the start values of each of the headers     
-
+                            // below, we find the start values of each of the headers  
+                            //    
                             var JUNCTIONS_START = MASTER_TEXT.indexOf("[JUNCTIONS]");    
                             var RESERVOIRS_START = MASTER_TEXT.indexOf("[RESERVOIRS]");    
                             var TANKS_START = MASTER_TEXT.indexOf("[TANKS]");    
@@ -799,12 +799,16 @@
                                     fourthIndent = " ";   
                                 }
                                 
+                                firstIndent = (new isolate(firstIndent)).isolated; // get rid of white space
+                                
                                 ARRAY_OF_JUNCTIONS[i] = new Junction (firstIndent, secondIndent, thirdIndent, fourthIndent, true);
                                 
                                 JUNCTION_ROW = JUNCTIONS.substring(0, JUNCTIONS.indexOf(";")+1);
                                 JUNCTIONS_DATA_START = JUNCTIONS.indexOf(PRESERVE) + PRESERVE.length + 1;
                                 JUNCTIONS = JUNCTIONS.substring(JUNCTIONS_DATA_START, JUNCTIONS.length);
                             }
+                            //console.log(ARRAY_OF_JUNCTIONS[1].ID);
+                            //console.log((new isolate(ARRAY_OF_JUNCTIONS[1].ID)).isolated);
                             }
                             else {
                                 for (var w = 0; JUNCTIONS.length > 5; w+=1){
@@ -822,13 +826,14 @@
                                     fourthIndent = JUNCTIONS.substring(0, JUNCTIONS.indexOf("\t"));
                                     JUNCTIONS = JUNCTIONS.substring(fourthIndent.length + 1, JUNCTIONS.length); 
                                     
+                                    firstIndent = (new isolate(firstIndent)).isolated; // get rid of white space
                                     
                                     ARRAY_OF_JUNCTIONS.push(new Junction(firstIndent, secondIndent,thirdIndent, fourthIndent, false));
                                 }
                             }
                             // to fix weird error
-                            ARRAY_OF_JUNCTIONS[0].ID = ARRAY_OF_JUNCTIONS[0].ID.substring(9,ARRAY_OF_JUNCTIONS[0].ID.length)
-                            console.log( ARRAY_OF_JUNCTIONS);
+                            //ARRAY_OF_JUNCTIONS[0].ID = ARRAY_OF_JUNCTIONS[0].ID.substring(9,ARRAY_OF_JUNCTIONS[0].ID.length)
+                            //console.log( ARRAY_OF_JUNCTIONS);
 
                             //////////// Now, we parse TANKS! :) //////////////////////////////
                             var ARRAY_OF_TANKS = [];                
@@ -1056,7 +1061,10 @@
                                     DEMAND_ROW = DEMAND_ROW.substring(DEMAND_ROW.indexOf("\t")+1, DEMAND_ROW.length);
                                     D3 = DEMAND_ROW.substring(0, DEMAND_ROW.indexOf("\t"));
                                     //DEMAND_ROW = DEMAND_ROW.substring(DEMAND_ROW.indexOf("\t")+1, DEMAND_ROW.length);
-                                
+                                    
+                                    D1 = (new isolate(D1)).isolated; // get rid of white space
+
+                                    
                                     ARRAY_OF_DEMANDS[t] = new DemandSpec (D1, parseFloat(D2), "", true);
                                 
                                     //DEMAND_ROW = DEMANDS.substring(0, DEMANDS.indexOf(";")+1);
@@ -1072,6 +1080,8 @@
                                     
                                     D2 = DEMANDS.substring(0, DEMANDS.indexOf("\t"));
                                     DEMANDS = DEMANDS.substring(D2.length + 1, DEMANDS.length); 
+                                    
+                                    D1 = (new isolate(D1)).isolated; // get rid of white space so we can compare properly
                                     
                                     holder = new DemandSpec(D1, parseFloat(D2),"", false);
                                     ARRAY_OF_DEMANDS.push(holder);
@@ -1158,7 +1168,7 @@
                             ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace(" ", "");
                             ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace("/t", "");
                             ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.replace("/n", "");
-                            ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.substring(2, ARRAY_OF_JUNCTIONS[element_j].ID.length - 10);
+                            //ARRAY_OF_JUNCTIONS[element_j].ID = ARRAY_OF_JUNCTIONS[element_j].ID.substring(2, ARRAY_OF_JUNCTIONS[element_j].ID.length - 10);
                             //console.log(ARRAY_OF_JUNCTIONS[element_j].ID);
                             //console.log(ARRAY_OF_JUNCTIONS[element_j].ID.length);
                             //console.log("demands");
@@ -1168,19 +1178,19 @@
                         //ARRAY_OF_JUNCTION_IDS.shift();        
                         //  for every entry in the demands list, pop it, and =+ the demand of that junction
                         var ji = 0;
-                            console.log(ji);
+                        //console.log("reached");
                         //console.log("J-19").length;
                         for (dem in ARRAY_OF_DEMANDS){
                             //console.log(ARRAY_OF_DEMANDS[dem].ID.length);
                             ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/t','');
                             ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace(' ','');
                             ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.replace('/n','');
-                            ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.substring(3, ARRAY_OF_DEMANDS[dem].ID.length - 11);
+                            //ARRAY_OF_DEMANDS[dem].ID = ARRAY_OF_DEMANDS[dem].ID.substring(3, ARRAY_OF_DEMANDS[dem].ID.length - 11);
                             //console.log(ARRAY_OF_DEMANDS[dem].ID);
                             //console.log(ARRAY_OF_DEMANDS[dem].ID.length);
                             //console.log("juctions");
                             ji= ARRAY_OF_JUNCTION_IDS.indexOf(ARRAY_OF_DEMANDS[dem].ID);
-                            if(ji < 0){
+                            if (ji < 0){
                             ERRORS = true;
                             num_error += 1;
                             console.log("Something went wrong");
