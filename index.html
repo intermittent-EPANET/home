@@ -485,12 +485,12 @@
 
                     </script>
 <!-------------------------------------------------------------------------------------------------------------------------------------------->
-                    <h6>The algorithm splits all demand nodes into three categories. The first category gets tanks at one elevation, the second gets tanks at a different elevation, and the third category is ignored. We use the first letter of the node’s name is determine which category it should go in. Category 1 nodes should start with this letter:</h6>
+                    <h6>The algorithm splits all demand nodes into three categories. The first category is the default; and each node with demand gets tanks at one elevation, the second category gets tanks at a different elevation (to allow for roof tanks or simulate suction pumps), and the third category is ignored. The node’s name should begin with a special four character string to indicate a non-default category (e.g., ROOF and SKIP would have junction names like ROOFJ1 or SKIPJunction2a4). Enter the FOUR characters string that will indicate Category 2 here:</h6>
                     <textarea id="textbox10">J</textarea> <button id="enter10">Enter Variable</button> <a download="info.txt" id="downloadlink10" style="display: none"></a>
-                    <p id = "Category1"></p>
+                    <p id = "Category2"></p>
 
                     <script>
-                        var Category1 = "J";
+                        var Category2 = "ROOF";
 
                         (function () {
                             var textFile = null,
@@ -512,24 +512,24 @@
                         enter10 = document.getElementById('enter10'),
                         textbox10 = document.getElementById('textbox10');
                             
-                        Category1 = textbox10.value;
+                        Category2 = textbox10.value;
 
                         enter10.addEventListener('click', function () {
                         var link = document.getElementById('downloadlink10');
                         link.href = makeTextFile(textbox10.value);
                         link.style.display = 'block';
-                        document.getElementById("Category1").innerHTML = "You entered: " + textbox10.value + " as the Category1.";
+                        document.getElementById("Category2").innerHTML = "You entered: " + textbox10.value + " as the Category2.";
                         }, false);
                         })();
 
                     </script>
 <!-- ---------------------->
-                    <h6>Category 2 nodes should start with this letter:</h6>
+                    <h6>Category 3 nodes should start with this FOUR letter string:</h6>
                     <textarea id="textbox11">L</textarea> <button id="enter11">Enter Variable</button> <a download="info.txt" id="downloadlink11" style="display: none"></a>
-                    <p id = "Category2"></p>
+                    <p id = "Category3"></p>
 
                     <script>
-                        var Category2 = "L";
+                        var Category3 = "SKIP";
 
                         (function () {
                             var textFile = null,
@@ -551,13 +551,13 @@
                         enter11 = document.getElementById('enter11'),
                         textbox11 = document.getElementById('textbox11');
                             
-                        Category2 = textbox11.value;
+                        Category3 = textbox11.value;
 
                         enter11.addEventListener('click', function () {
                         var link = document.getElementById('downloadlink11');
                         link.href = makeTextFile(textbox10.value);
                         link.style.display = 'block';
-                        document.getElementById("Category2").innerHTML = "You entered: " + textbox11.value + " as the Category2.";
+                        document.getElementById("Category3").innerHTML = "You entered: " + textbox11.value + " as the Category3.";
                         }, false);
                         })();
 
@@ -1134,8 +1134,8 @@
                                 
                         bpDepth = parseFloat(textbox13.value);
                 
-                        Category1 = textbox10.value;
-                        Category2 = textbox11.value;
+                        Category2 = textbox10.value;
+                        Category3 = textbox11.value;
                         // end of input analysis
 
                         // ######################################################  
@@ -1213,12 +1213,20 @@
                         var KList=[];
                         var LList=[];
                         for (el in ARRAY_OF_JUNCTIONS){
-                            if (ARRAY_OF_JUNCTIONS[el].ID.substring(0,1) == Category1){
-                                LList.push(ARRAY_OF_JUNCTIONS[el].ID); //if not JP -> L-block -> valve
-                            } 
-                            else if (ARRAY_OF_JUNCTIONS[el].ID.substring(0,1) == Category2){
-                                KList.push(ARRAY_OF_JUNCTIONS[el].ID); // else K-block -> no pumps but OHT
-                            }    
+                            if (ARRAY_OF_JUNCTIONS[el].ID.Length >=4){
+                                if (ARRAY_OF_JUNCTIONS[el].ID.substring(0,4) == Category2){
+                                    KList.push(ARRAY_OF_JUNCTIONS[el].ID); // else K-block -> no pumps but OHT
+                                } 
+                                else if (ARRAY_OF_JUNCTIONS[el].ID.substring(0,4) == Category3){
+                                    //do nothing, ignore these junctions
+                                }  
+                                else{
+                                    LList.push(ARRAY_OF_JUNCTIONS[el].ID); //if not Cat 2 or 3, but long name, then cat1
+                                }
+                            }
+                            else{
+                                LList.push(ARRAY_OF_JUNCTIONS[el].ID); //name is short, therefore not Cat 2 or 3, then cat1
+                            }
                         }
                         //var HHDaily = 1100;
                         //var sdepth = 0;
